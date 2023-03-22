@@ -1,0 +1,14 @@
+#File extensions to ignore
+*.gz
+*.swp
+
+#files to ignore
+
+
+#Folders to ignore
+data/
+test/
+
+#Mac clean-up
+*.ds_store
+
