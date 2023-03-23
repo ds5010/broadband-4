@@ -14,6 +14,9 @@ data:
 speed:
 	python3 -B src/speeds.py
 
+avg:
+	python3 -B src/compute_avg.py
+
 clean-data:
 	rm -rf data
 
