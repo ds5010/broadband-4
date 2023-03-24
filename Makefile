@@ -1,5 +1,4 @@
-###### "Macro" Commands ######
-# Make new plots (leaving data intact)
+# Allows use of make data while having a data folder
 .PHONY: data
 
 # Creates the data folder
