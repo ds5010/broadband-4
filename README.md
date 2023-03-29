@@ -17,9 +17,14 @@ US Census Bureau county subdivision information [here](https://www2.census.gov/g
 
 
 ## Step 1
-
 Run the following command to a csv file with the maximum download speeds for Cable, Copper, and Fiber for each census block in Maine:
 
 ```
 make speed
+```
+
+## Step 2
+Calculate the average download speeed for Millinocket, which will be printed to the terminal.
+```
+make avg
 ```
