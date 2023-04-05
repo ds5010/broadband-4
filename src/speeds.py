@@ -16,6 +16,7 @@ def read_fcc(filename):
     filename - name of file without the path
     """
     df = pd.read_csv(base + filename, dtype={'block_geoid':str})
+    print(df.head())
     df = df.rename(columns={"block_geoid": "block_fips"})
     return df.groupby("block_fips")["max_advertised_download_speed"].max()
 
