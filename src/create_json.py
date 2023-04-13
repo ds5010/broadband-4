@@ -1,34 +1,26 @@
 import pandas as pd
-import numpy as np
 import geopandas as gpd
 
 
-print(end='\n')
-print("Reading the previously created broadband speeds file")
-df = pd.read_csv("data/speeds.csv", dtype={"block_fips":str})
+def speedGeo():
+    ''' Merges block broadband speeds with census geographies and saves to a json file'''
 
-def merge_dataframes(df1, df2, onname, howname):
-    df1 = df1.merge(df2, on=onname, how=howname)
-    return df1
+    #speeds data
+    speeds = pd.read_csv("data/speeds.csv", dtype={"block_fips":str})
 
-print(end='\n')
-print("Reading the census block file")
-print("This may take some time")
-filename = "data/tl_2022_23_tabblock20.zip"
+    #census geographies data
+    filename = "data/tl_2022_23_tabblock20.zip"
+    maine_block = gpd.read_file(filename, dtype={"GEOID20":str})
 
-stateblock = (filename)
+    #clean up geographies
+    maine_block = maine_block[maine_block['ALAND20'] > 0] #remove land area = 0
 
-maine_block = gpd.read_file(stateblock, dtype={"GEOID20":str})
-maine_block = maine_block[maine_block['ALAND20'] > 0]
-maine_block = maine_block.rename(columns={'GEOID20':'block_fips'})
+    #merge data
+    maine_block = maine_block.merge(speeds, left_on = 'GEOID20', right_on = 'block_fips')
 
-print(end='\n')
-print("Merging the two dataframes together")
-maine_block = merge_dataframes(maine_block, df, 'block_fips', 'left')
+    #save desired data
+    final = maine_block[['block_fips', 'max_speed', 'geometry']]
+    final.to_file("data/speeds.json", driver="GeoJSON") 
 
-print(end='\n')
-print("Writing the merged data to a JSON file")
-print("This will take some time")
-maine_block.to_file("data/speeds.json", driver="GeoJSON") 
-print(end='\n')
-print("Complete!")
+if __name__ == "__main__":
+    speedGeo()

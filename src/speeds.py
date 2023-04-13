@@ -16,15 +16,20 @@ def read_fcc(filename):
     filename - name of file without the path
     """
     df = pd.read_csv(base + filename, dtype={'block_geoid':str})
-    print(df.head())
     df = df.rename(columns={"block_geoid": "block_fips"})
     return df.groupby("block_fips")["max_advertised_download_speed"].max()
 
 
-block_speeds = {filename.split("_")[2]: read_fcc(filename) 
-                for i, filename in enumerate(filenames)}
+def speed_df():
+    """ creates a table of max broadband speeds by type and block, saves as a csv
+    """
+    block_speeds = {filename.split("_")[2]: read_fcc(filename) 
+                    for i, filename in enumerate(filenames)}
 
-df = pd.DataFrame(block_speeds)
-df["max_speed"] = df.max(axis=1)
+    df = pd.DataFrame(block_speeds)
+    df["max_speed"] = df.max(axis=1)
+    df.to_csv("data/speeds.csv", sep=',', header=True)
 
-df.to_csv(r"data/speeds.csv", sep=',', header=True)
+
+if __name__ == "__main__":
+    speed_df()

@@ -43,10 +43,11 @@ Create a plot for maximum broadband speeds available throughout Maine
 ```
 make state
 ```
-
+![](img/Maine_speeds.png)
 ## Step 5
 Create a plot for maximum broadband speeds available in the individual Census blocks of Millinocket, Maine
 
 ```
 make block
 ```
+![](img/Millinocket_speeds.png)
