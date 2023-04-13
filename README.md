@@ -25,6 +25,29 @@ make speed
 
 ## Step 2
 Calculate the average download speeed for Millinocket, which will be printed to the terminal.
+
 ```
 make avg
 ```
+
+## Step 3
+Merge the maximum download speeds information with the Census block data for Maine.
+
+```
+make json
+```
+
+## Step 4
+Create a plot for maximum broadband speeds available throughout Maine
+
+```
+make state
+```
+![](img/Maine_speeds.png)
+## Step 5
+Create a plot for maximum broadband speeds available in the individual Census blocks of Millinocket, Maine
+
+```
+make block
+```
+![](img/Millinocket_speeds.png)
