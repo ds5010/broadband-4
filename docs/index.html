@@ -31,7 +31,10 @@
           <a class="nav-link" href="/">Last</a>
         </li>
       </ul>
-      <a class="navbar-brand" href="https://github.com/ds5010/broadband-3">
+      <a class="navbar-brand" href="https://observablehq.com/d/656c40c55d9781d3">
+        <img class="navbar-brand" src="observable.svg" height="40px">
+      </a>
+      <a class="navbar-brand" href="https://github.com/pbogden/bootstrap">
         <img class="navbar-brand" src="github-mark.svg" height="40px">
       </a>
     </div><!-- /.collapse -->
@@ -43,7 +46,9 @@
     <div class="col-sm-4">
       <p>Check out the map of Maine. If you're using a desktop and you hover over it with your mouse, you'll get tooltips.</p>
       <p>But you won't get tooltips if you're using a mobile device:-(</p>
-      <p>And while it's responsive, the scale marks don't work very well on a mobile device:-(</p>
+      <p>And while it's responsive, the scale marks don't work very well on a mobile device either:-(</p>
+      <p>By the way, <code>mywidth</code> evaluates to "<span id="mytest"></span>", which has bearing on the appearance of the legend. That's TMI for the moment.</p>
+      <p>A seemingly unrelated note from <a href="https://github.com/d3/d3-selection">D3 documentation</a>..."Caution: unlike many SVG attributes, CSS styles typically have associated units. For example, 3px is a valid stroke-width property value, while 3 is not. Some browsers implicitly assign the px (pixel) unit to numeric values, but not all browsers do: IE, for example, throws an “invalid arguments” error!"</p>
     </div>
     <div class="col-sm-8">
       <div id="map"></div>
@@ -61,16 +66,23 @@
   // Your notebook, compiled as an ES module.
   import notebook from "https://api.observablehq.com/d/656c40c55d9781d3.js?v=3";
   
-  new Runtime().module(notebook, name => {
+  const main = new Runtime().module(notebook, name => {
     if (name === "map") {
       return new Inspector(document.querySelector("#map"));
     }
     if (name === "mychart") {
       return new Inspector(document.querySelector("#mychart"));
     }
+    if (name === "mywidth") {
+      return new Inspector(document.querySelector("#mytest"));
+    }
     if (name === "map_filter") return true;
     if (name === "myinitialize") return true;
   });
+
+  // Redefine the cell “data” as the contents of the local file population.json;
+  // this will affect the chart embedded above.
+  main.redefine("data", fetch("pop.json").then(response => response.json()));
   </script>
 </body>
 </html>
