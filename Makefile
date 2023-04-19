@@ -29,10 +29,8 @@ state: img
 block: img
 	python3 -B src/plot_block.py
 
+DDI: data/
+	python3 -B src/DDI.py
+
 clean-data:
 	rm -rf data
-
-
-
-
-	
