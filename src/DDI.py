@@ -139,6 +139,10 @@ scores['INFA_max'] = scores['NBBND_z']*.3 + scores['NIA_z']*.3 + scores['NCD_z']
 scores['INFA_avg'] = scores['NBBND_z']*.3 + scores['NIA_z']*.3 + scores['NCD_z']*.3 -scores['DNS_avg_z']*.05 - scores['UPS_avg_z']*.05
 scores = scores.rename(columns={"tract group":"TractID"})
 
+infa = scores[['TractID', 'INFA_avg']]
+infa = infa.rename(columns={"INFA_avg":"INFA"})
+infa['INFA'] = 100*(infa['INFA']-infa['INFA'].min())/(infa['INFA'].max()-infa['INFA'].min())
+
 # Gather information for and calculate all SE scores
 keys = ['B01001_001E','B01001_020E','B01001_021E','B01001_044E','B01001_045E',
     'B01001_022E','B01001_023E','B01001_046E','B01001_047E','B01001_024E','B01001_025E','B01001_048E',
@@ -205,6 +209,9 @@ calc_percent_Z(df2, '>75K without internet', 'Total Pop', '>75K without internet
 
 df2['SE Z'] = (.25 * df2['> 65% Z']) + (.25 * df2['Below Poverty Level% Z']) + (.25*df2['Less than HS Grad% Z']) + (.25*df2['Disabled% Z'])
 df_ZScore = df2[['TractID', 'Total Pop','> 65% Z','Below Poverty Level% Z','Less than HS Grad% Z','Disabled% Z','<35K without internet% Z','>75K without internet% Z','SE Z']]
+SE = df_ZScore[['TractID', 'SE Z']]
+SE = SE.rename(columns={"SE Z":"SE"})
+SE['SE'] = 100*(SE['SE']-SE['SE'].min())/(SE['SE'].max()-SE['SE'].min())
 
 scores = scores.merge(df_ZScore[['SE Z', 'TractID']], on='TractID')
 scores['DDI_median'] = scores['INFA_median'] + scores['SE Z']
@@ -220,9 +227,15 @@ DDI['DDI_max'] = 100*(DDI['DDI_max']-DDI['DDI_max'].min())/(DDI['DDI_max'].max()
 print(DDI)
 print(DDI.describe())
 
+'''
 DDI_avg = DDI[['TractID', 'DDI_avg']]
 DDI_avg.to_csv('data/DDI_avg_speeds.csv')
 DDI_max = DDI[['TractID', 'DDI_max']]
 DDI_max.to_csv('data/DDI_max_speeds.csv')
 DDI_median = DDI[['TractID', 'DDI_median']]
 DDI_median.to_csv('data/DDI_median_speeds.csv')
+'''
+DDI_ = DDI[['TractID', 'DDI_avg']]
+DDI_.to_csv('data/DDI_tract.csv')
+infa.to_csv('data/INFA_tract.csv')
+SE.to_csv('data/SE_tract.csv')
