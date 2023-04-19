@@ -30,6 +30,8 @@ Calculate the average download speeed for Millinocket, which will be printed to 
 make avg
 ```
 
+The output you recieve should be "Millinocket average download speed: 516.423"
+
 ## Step 3
 Merge the maximum download speeds information with the Census block data for Maine.
 
@@ -51,3 +53,11 @@ Create a plot for maximum broadband speeds available in the individual Census bl
 make block
 ```
 ![](img/Millinocket_speeds.png)
+
+
+## Step 6 
+
+```
+make DDI
+```
+DDI Data of different speeds will be saved as a CSV in data folder
