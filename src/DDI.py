@@ -60,6 +60,10 @@ block_download_speeds = {filename.split("_")[2]: read_fcc(filename,"max_advertis
                 for i, filename in enumerate(filenames)}
 block_upload_speeds = {filename.split("_")[2]: read_fcc(filename,"max_advertised_upload_speed") 
                 for i, filename in enumerate(filenames)}
+
+#Raise an exception, warn, or no action if trying to use chained assignment
+pd.options.mode.chained_assignment = None
+
 df = pd.DataFrame(block_download_speeds)
 df=get_clean_max(df)
 df2 = pd.DataFrame(block_upload_speeds)
