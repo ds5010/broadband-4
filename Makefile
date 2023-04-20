@@ -32,5 +32,8 @@ block: img
 DDI: data/
 	python3 -B src/DDI.py
 
+maps: data/
+	python3 -B src/maps.py
+
 clean-data:
 	rm -rf data
