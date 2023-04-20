@@ -180,9 +180,8 @@ df['<35K without internet'] = df.iloc[:, 21:24].sum(axis=1).astype(int)
 df['TractID'] = df['state']+df['county']+df['tract']
 
 # pulling out the essentials
-df2 = df[['TractID', 'Total Pop', 'Over 65 pop', 'Below Poverty Level', 'Less than HS Grad', 'Less than HS Grad or Equiv', 'Disabled', '<35K without internet', '>75K without internet']]
-df2.iloc[:,:1] = df2.iloc[:,:1].astype(str)
-df2.iloc[:,1:] = df2.iloc[:,1:].astype(int)
+df2 = df[['TractID', 'Total Pop', 'Over 65 pop', 'Below Poverty Level', 'Less than HS Grad', 'Less than HS Grad or Equiv', 'Disabled', '<35K without internet', '>75K without internet']].copy()
+df2[df2.columns[1:]] = df2[df2.columns[1:]].astype(int)
 
 # fixing divide by zero issues for percentage of pop by changing denominator to 0.01 -- if no pop percentage will still be zero
 # df2['Total Pop'] = df2['Total Pop'].replace(0, 0.01)
@@ -219,7 +218,7 @@ scores['DDI_avg'] = scores['INFA_avg'] + scores['SE Z']
 scores['DDI_max'] = scores['INFA_max'] + scores['SE Z']
 
 # Calculate DDI scores for all DNS and UPS configurations
-DDI = scores[['TractID', 'DDI_median', 'DDI_avg', 'DDI_max']]
+DDI = scores[['TractID', 'DDI_median', 'DDI_avg', 'DDI_max']].copy()
 DDI['DDI_median'] = 100*(DDI['DDI_median']-DDI['DDI_median'].min())/(DDI['DDI_median'].max()-DDI['DDI_median'].min())
 DDI['DDI_avg'] = 100*(DDI['DDI_avg']-DDI['DDI_avg'].min())/(DDI['DDI_avg'].max()-DDI['DDI_avg'].min())
 DDI['DDI_max'] = 100*(DDI['DDI_max']-DDI['DDI_max'].min())/(DDI['DDI_max'].max()-DDI['DDI_max'].min())
@@ -227,15 +226,8 @@ DDI['DDI_max'] = 100*(DDI['DDI_max']-DDI['DDI_max'].min())/(DDI['DDI_max'].max()
 print(DDI)
 print(DDI.describe())
 
-'''
-DDI_avg = DDI[['TractID', 'DDI_avg']]
-DDI_avg.to_csv('data/DDI_avg_speeds.csv')
-DDI_max = DDI[['TractID', 'DDI_max']]
-DDI_max.to_csv('data/DDI_max_speeds.csv')
-DDI_median = DDI[['TractID', 'DDI_median']]
-DDI_median.to_csv('data/DDI_median_speeds.csv')
-'''
 DDI_ = DDI[['TractID', 'DDI_avg']]
+DDI_ = DDI_.rename(columns={"DDI_avg":"DDI"})
 DDI_.to_csv('data/DDI_tract.csv')
 infa.to_csv('data/INFA_tract.csv')
 SE.to_csv('data/SE_tract.csv')
