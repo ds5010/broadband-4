@@ -24,7 +24,7 @@ for score in scores:
     del df_data[df_data.columns[0]]
     df_data['county']=df_data['TractID'].apply(lambda x:str(x)[2:5]+str(x)[-4:])
     df_data['title']=df_data['county'].apply(lambda x: diction[x[:3]]['name']+"\ntract:"+x[-4:] if x[:3] in diction else NA)
-    df_data['title']=df_data['title']+ "\n"+df_data[score].astype(str)
+    df_data['title']=df_data['title']+ "\n"+round(df_data[score], 2).astype(str)
     df_data['GEOID']=df_data['TractID'].astype('str')
     df_data.drop(columns=['TractID'], inplace=True)
     new_gdf = gdf.merge(df_data[['GEOID',score,'title']],on='GEOID', how='left')
