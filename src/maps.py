@@ -27,8 +27,8 @@ for score in scores:
     df_data['GEOID']=df_data['TractID'].astype('str')
     df_data.drop(columns=['TractID'], inplace=True)
     new_gdf = gdf.merge(df_data[['GEOID',score,'title']],on='GEOID', how='left')
-    new_gdf.to_file('data/'+score+'.json', driver="GeoJSON")
-    print('saving '+score+' GeoJSON data to data/'+score+'.json')
+    new_gdf.to_file('docs/'+score+'.json', driver="GeoJSON")
+    print('saving '+score+' GeoJSON data to docs/'+score+'.json')
     new_wm = new_gdf.to_crs(epsg=3857)
 
     print('Plotting ' +score+ ' scores on map')
