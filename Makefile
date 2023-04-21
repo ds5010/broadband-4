@@ -34,3 +34,6 @@ DDI: data/
 
 clean-data:
 	rm -rf data
+env:
+	conda env create -f environment.yml
+	conda activate broadband3
