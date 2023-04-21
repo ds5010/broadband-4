@@ -61,3 +61,17 @@ make block
 make DDI
 ```
 DDI Data of different speeds will be saved as a CSV in data folder
+
+
+## Step 7
+Create plots and GeoJSON files for DDI, SE, and INFA scores by running the following command:
+```
+make maps
+```
+
+The plots should look like this:
+![](img/DDI_tract.png)
+
+![](img/SE_tract.png)
+
+![](img/INFA_tract.png)
