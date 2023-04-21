@@ -22,10 +22,10 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
         <li class="nav-item">
-          <a class="nav-link active" href="/">DDI</a>
+          <a class="nav-link" href="/">DDI</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/infa.html">Infrastructure</a>
+          <a class="nav-link active" href="/infa.html">Infrastructure</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/se.html">SE</a>
@@ -82,7 +82,7 @@
 
   // Redefine the cell “data” as the contents of the local file population.json;
   // this will affect the chart embedded above.
-  main.redefine("data", fetch("DDI.json").then(response => response.json()));
+  main.redefine("data", fetch("INFA.json").then(response => response.json()));
   </script>
 </body>
 </html>
