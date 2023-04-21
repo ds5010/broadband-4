@@ -43,15 +43,15 @@
 
 <main class="container" style="margin-top:80px">
   <div class="row mt-2">
+    <div class="col-sm-8">
+      <div id="map"></div>
+    </div>
     <div class="col-sm-4">
       <p>Check out the map of Maine. If you're using a desktop and you hover over it with your mouse, you'll get tooltips.</p>
       <p>But you won't get tooltips if you're using a mobile device:-(</p>
       <p>And while it's responsive, the scale marks don't work very well on a mobile device either:-(</p>
       <p>By the way, <code>mywidth</code> evaluates to "<span id="mytest"></span>", which has bearing on the appearance of the legend. That's TMI for the moment.</p>
       <p>A seemingly unrelated note from <a href="https://github.com/d3/d3-selection">D3 documentation</a>..."Caution: unlike many SVG attributes, CSS styles typically have associated units. For example, 3px is a valid stroke-width property value, while 3 is not. Some browsers implicitly assign the px (pixel) unit to numeric values, but not all browsers do: IE, for example, throws an “invalid arguments” error!"</p>
-    </div>
-    <div class="col-sm-8">
-      <div id="map"></div>
     </div>
   </div>
 
