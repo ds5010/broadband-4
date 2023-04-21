@@ -1,6 +1,7 @@
 # Allows use of make data while having a data folder
 .PHONY: data img
 
+all: clean-data data img speed avg json state block DDI
 # Creates the data folder
 data:
 	mkdir -p data
@@ -37,3 +38,4 @@ maps: data/
 
 clean-data:
 	rm -rf data
+
