@@ -15,7 +15,7 @@
 
 <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
   <div class="container">
-    <a class="navbar-brand" href="">Broadband-3</a>
+    <a class="navbar-brand" href="">ME Broadband Availability</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -47,11 +47,10 @@
       <div id="map"></div>
     </div>
     <div class="col-sm-4">
-      <p>Check out the map of Maine. If you're using a desktop and you hover over it with your mouse, you'll get tooltips.</p>
-      <p>But you won't get tooltips if you're using a mobile device:-(</p>
-      <p>And while it's responsive, the scale marks don't work very well on a mobile device either:-(</p>
-      <p>By the way, <code>mywidth</code> evaluates to "<span id="mytest"></span>", which has bearing on the appearance of the legend. That's TMI for the moment.</p>
-      <p>A seemingly unrelated note from <a href="https://github.com/d3/d3-selection">D3 documentation</a>..."Caution: unlike many SVG attributes, CSS styles typically have associated units. For example, 3px is a valid stroke-width property value, while 3 is not. Some browsers implicitly assign the px (pixel) unit to numeric values, but not all browsers do: IE, for example, throws an “invalid arguments” error!"</p>
+	  <h2 class="text-center fs-3">Infrastructure (INFA) Component</h2>
+      <p>Hovering over the map on desktop displays the county, tract number, and INFA score. Like with DDI, a higher INFA component score is considered worse.</p>
+      <p>The INFA score measures and accounts for internet access, internet speeds, and access to computing devices.</p>
+      <p>By the way, <code>mywidth</code> evaluates to "<span id="mytest"></span>", which has bearing on the appearance of the legend.</p>
     </div>
   </div>
 
@@ -84,5 +83,9 @@
   // this will affect the chart embedded above.
   main.redefine("data", fetch("INFA.json").then(response => response.json()));
   </script>
+	<footer class="pt-3 mt-4 text-muted border-top">
+            &copy; 2023 Spring DS5010
+    </footer>
+
 </body>
 </html>
