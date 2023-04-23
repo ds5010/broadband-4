@@ -15,7 +15,7 @@
 
 <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
   <div class="container">
-    <a class="navbar-brand" href="">Broadband-3</a>
+    <a class="navbar-brand" href="">ME Broadband Availability</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -42,20 +42,48 @@
 </nav>
 
 <main class="container" style="margin-top:80px">
+  <div class="p-1 mb-1 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-4 text-center fw-bold fs-1">ME Broadband Availability</h1>
+        <p class="container-fluid text-center fs-6">This site displays the results of the Roux Institute's DS 5010 Spring 2023 students' attempts to create a Maine-specific Digital Divide Index (DDI) map inspired by 
+			<a href="https://storymaps.arcgis.com/stories/8ad45c48ba5c43d8ad36240ff0ea0dc7">Purdue University's Center for Regional Development Digital Divide Index</a>.</p>
+	  </div>
+    </div>
   <div class="row mt-2">
     <div class="col-sm-8 d-flex justify-content-center">
       <div id="map"></div>
     </div>
-    <div class="col-sm-4">
-      <h1>DDI</h1>
-      <p>Check out the map of Maine. If you're using a desktop and you hover over it with your mouse, you'll get tooltips.</p>
-      <p>But you won't get tooltips if you're using a mobile device:-(</p>
-      <p>And while it's responsive, the scale marks don't work very well on a mobile device either:-(</p>
-      <p>By the way, <code>mywidth</code> evaluates to "<span id="mytest"></span>", which has bearing on the appearance of the legend. That's TMI for the moment.</p>
-      <p>A seemingly unrelated note from <a href="https://github.com/d3/d3-selection">D3 documentation</a>..."Caution: unlike many SVG attributes, CSS styles typically have associated units. For example, 3px is a valid stroke-width property value, while 3 is not. Some browsers implicitly assign the px (pixel) unit to numeric values, but not all browsers do: IE, for example, throws an “invalid arguments” error!"</p>
+    <div class="p-2 mb-2 col-sm-4 bg-light rounded-3">
+      <h2 class="text-center fs-3">Maine DDI Index</h2>
+      <p>Hovering over the map on desktop displays the county, tract number, and DDI index. A higher score indicates a worse digital divide.</p>
+      <p>The DDI index has two component scores: an infrastructure (INFA) score and a socioeconomic (SE) score that are displayed on the other pages of this site.</p>
+      <p>The Spring 2023 DS5010 class computed Digital Divide Index (DDI) scores for Maine based on Purdue's DDI methodology. 
+	  However, the sources of our data are slightly different from Purdue. Broadband data was retrieved from the <a href="https://broadbandmap.fcc.gov/data-download/nationwide-data?version=jun2022">FCC</a>. 
+	  We used US Census data for both the geographical mapping and the socioeconomic data. The geographical data was retrieved from the <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html">TIGER/Line Shape Files</a> and the socioeconomic data was retrieved from the 
+	  <a href="https://www.census.gov/data/developers/data-sets/acs-5year.html">American Community Survey (ACS) 5-Year Estimates</a>.</p>
+      <p>By the way, <code>mywidth</code> evaluates to "<span id="mytest"></span>", which has bearing on the appearance of the legend.</p>
     </div>
   </div>
+<div class="bg-light rounded-3">
+      <div class="container-fluid py-3">
+        <h3 class="display-4 text-center fw-bold fs-4">Contributors</h3>
+        <p class="container-fluid text-center fs-6">
+		<a href="https://github.com/pbogden">Professor Bogden</a> |
+		<a href="https://github.com/tom2470">Tom Henehan</a> |
+		<a href="https://github.com/mhorns">Mitchell Hornsby</a> |
+		<a href="https://github.com/dobnu">Daniel O'Brien</a> |
+		<a href="https://github.com/smr-j">Jayati Samar</a> |
+		<a href="https://github.com/joschw01">Joseph Schweiss</a> |
+		<a href="https://github.com/Moshati1315">Mohammed Shati</a> |
+		<a href="https://github.com/FunmiSomoye">Oluwafunmilayo Somoye</a> |
+		<a href="https://github.com/petersternhagen">Peter Sternhagen</a> |
+		<a href="https://github.com/WendyThress-Roux">Wendy Thress</a> |
+		<a href="https://github.com/Phitran-neu">Philip Tran</a> |
+		<a href="">Ruyang Wang</a>
 
+		</p>
+	  </div>
+</div>
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
@@ -85,5 +113,8 @@
   // this will affect the chart embedded above.
   main.redefine("data", fetch("DDI.json").then(response => response.json()));
   </script>
+	<footer class="pt-3 mt-4 text-muted border-top">
+            &copy; 2023 Spring DS5010
+    </footer>
 </body>
 </html>
