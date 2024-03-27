@@ -6,9 +6,12 @@
 
 
 #Folders to ignore
-data/
+data/*
 test/
+
+# Don't ignore...
+!data/county_tract_total_covered_population.csv
+!data/tract_total_covered_populations.csv
 
 #Mac clean-up
 *.ds_store
-

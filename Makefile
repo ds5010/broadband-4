@@ -12,6 +12,9 @@ data:
 	cd data; curl -LO https://github.com/dobnu/fcc-data/raw//main/bdc_23_Fiber-to-the-Premises_fixed_broadband_063022.zip
 	cd data; curl -LO https://github.com/dobnu/fcc-data/raw/main/bdc_23_Licensed-Fixed-Wireless_fixed_broadband_063022.zip
 
+DE:
+	python3 -B src/get_DE_data.py
+
 img:
 	mkdir -p img
 
