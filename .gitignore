@@ -15,3 +15,4 @@ test/
 
 #Mac clean-up
 *.ds_store
+__pycache__
