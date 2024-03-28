@@ -1,6 +1,10 @@
 # Allows use of make data while having a data folder
 .PHONY: data
 
+# Plot population
+app:
+	python -B src/pop_tract.py 
+
 # Creates the data folder and populates it with the necessary files
 data:
 	mkdir -p data
