@@ -2,7 +2,7 @@
 import geopandas as gpd
 import os
 
-# Shapefile for 2022 Maine Census Tract -- Need to decide w/ class which shapefiles/etc to use!!
+# Shapefile for 2019 Maine Census Tract
 def get_shapefile(filename='census_geography_2019.geojson', directory='data'):
     '''get_shapefile() grabs the 2019 maine census tract shapefile and saves it as a geoJSON file.
     Parameters: None

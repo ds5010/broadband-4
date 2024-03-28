@@ -3,7 +3,7 @@ import pandas as pd
 def get_maine_tract():
     excel = 'https://www2.census.gov/programs-surveys/demo/datasets/community-resilience/county_tract_total_covered_populations.xlsx'
     
-    # If the data is not in the first sheet, you may need to specify the sheet_name parameter
+    # Specify the sheet_name to grab the right info
     tract_df = pd.read_excel(excel, sheet_name='tract_total_covered_populations')
     tract_df.rename(columns={'geo_id': 'GEOID'}, inplace=True)  # Rename 'geo_id' to 'GEOID' for merging
     maine_tract_info = tract_df[tract_df['GEOID'].astype(str).str[:2] == '23']
