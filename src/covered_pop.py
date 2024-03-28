@@ -1,7 +1,4 @@
-import os
 import pandas as pd
-import geopandas as gpd
-import matplotlib.pyplot as plt
 
 
 def clean_covered_pop(path):
