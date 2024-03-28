@@ -19,7 +19,7 @@ def covered_pop_plot(gdf, column, title):
 
 def main():
     tract_df = covered_pop.cleaned_df()
-    gdf = gpd.read_file("data/tl_2022_23_tract.zip")
+    gdf = gpd.read_file("data/tl_2019_23_tract.zip")
     gdf["GEOID"] = gdf["GEOID"].astype("int64")
     combined_gdf = gdf.merge(tract_df, left_on="GEOID", right_on="geo_id")
     covered_pop_plot(combined_gdf, "pct_ipr_pop", 'Covered Households Percentage')
