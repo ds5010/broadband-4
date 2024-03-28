@@ -1,7 +1,3 @@
-# hw-ddi
-
-Use this repo to complete the "Data retrieval" and "Data cleaning" steps in [mca.md](mca.md)
-
 # Covered Populations
 This repo uses data about covered populations in the state of Maine and plots them based on census tract.
 
