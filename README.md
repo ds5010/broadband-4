@@ -14,6 +14,6 @@ The following command will plot a population density map of Maine based on the c
 make plot
 ```
 <p align="center">
-    <img src="figs/plot_population_density.png" width="550">
+    <img src="figs/plot_density.png" width="550">
 </p><br>
 
