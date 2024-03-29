@@ -7,7 +7,7 @@ data:
 	python -B src/get_DE_csv.py
 	python -B src/get_shapefile.py
 
-chart:
+plot:
 	python -B src/plot_density.py
 
 # Removes the data folder and all of its contents
