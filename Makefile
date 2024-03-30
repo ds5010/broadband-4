@@ -11,10 +11,3 @@ data:
 clean: 
 	rm -rf data
 
-
-stuff:
-	rm docs/*json
-	rm docs/*html
-	cp ../../homeworks/digital-equity/hw-digital-equity-solution/docs/index.html docs
-	cp ../../homeworks/digital-equity/hw-digital-equity-solution/docs/data.json docs
-	cp ../../homeworks/digital-equity/hw-digital-equity-solution/docs/dictionary.json docs
