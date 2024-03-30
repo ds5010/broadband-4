@@ -1,0 +1,42 @@
+{
+    "geo_id": {
+        "Column": 1,
+        "Description": "Combined state (2-digit) + county (3-digit) + tract (6-digit) code",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates"
+    },
+    "geography_name": {
+        "Column": 2,
+        "Description": "Census tract name with county and state names",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 ACS 5-Year Simplified Geography Files"
+    },
+    "rural": {
+        "Column": 3,
+        "Description": "Rural/urban status \n\"Rural\" indicates tract is wholly contained in a rural area; \"Not rural\" denotes otherwise.",
+        "Source(s)": "Digital Equity Act definition of \"rural areas\" applied to 2015-2019 5-Year American Community Survey (ACS) Estimates.  "
+    },
+    "tract_tot_pop": {
+        "Column": 4,
+        "Description": "2019 Tract resident population",
+        "Source(s)": "U.S. Census Bureau, 2019 Modeled Total Covered Population Estimates, \n2019 Synthetic population."
+    },
+    "tot_cov_pop": {
+        "Column": 5,
+        "Description": "2019 Total covered populations in tract (population with 1 or more of the eight characteristics that make up the total covered populations as defined by the Digital Equity Act of 2021)",
+        "Source(s)": "U.S. Census Bureau, 2019 Modeled Total Covered Population Estimates.\nSmall area model of total covered populations derived from 2019 ACS 1-Year file, Vintage 2019 County and Puerto Rico Municipio Population Estimates, 2010 Decennial Census, 2015-2019 ACS 5-Year file, 2017 Program for the International Assessment of Adult Competencies (PIAAC) Household file and 2012/2014/2017 PIAAC State and County Small Area Estimates of Adult Skills on Literacy and Numeracy from the National Education Center for Education Statistics."
+    },
+    "pct_tot_cov_pop": {
+        "Column": 6,
+        "Description": "2019 Percentage of tract population in total covered populations",
+        "Source(s)": "U.S. Census Bureau, 2019 Modeled Total Covered Population Estimates."
+    },
+    "ipr_pop": {
+        "Column": 9,
+        "Description": "2015-2019 Tract household population in \"covered households\" (living in households with income-to-poverty ratio no more than 150 percent of federal poverty threshold)",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates.\nEstimate is rounded to 4 significant digits. "
+    },
+    "pct_ipr_pop": {
+        "Column": 10,
+        "Description": "2015-2019 Percentage of household population in \"covered households\" in tract (living in households with income-to-poverty ratio no more than 150 percent of federal poverty threshold)",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates"
+    }
+}
