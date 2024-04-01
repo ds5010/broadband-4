@@ -7,8 +7,11 @@ data:
 	python -B src/get_DE_csv.py
 	python -B src/get_shapefile.py
 
-plot:
+density:
 	python -B src/plot_density.py
+
+plots:
+	python -B src/make_plots.py
 
 # Removes the data folder and all of its contents
 clean: 

@@ -11,9 +11,14 @@ make data
 ### *Step 2: Plotting Population Density*
 The following command will plot a population density map of Maine based on the census data.
 ```
-make plot
+make density
 ```
 <p align="center">
     <img src="figs/plot_density.png" width="550">
 </p><br>
 
+### *Step 3: Plotting Covered Population Charts*
+Similar to step 2, the following command will plot multiple graphs on covered populations of Maine based on numerous factors *(Percent Covered Households, Percent Ages 60+, Percent Incarcerated, Percent Disability, Percent Veterans, Percent Language Barrier, Percent w/o Broadband or Computers, Percent Minorities, Percent Rural Living, and Percent ESL)*.
+```
+make plots
+```
