@@ -4,10 +4,8 @@
 # Creates the data folder and populates it with the necessary files
 data:
 	mkdir -p data
-	mkdir -p docs
 	python -B src/get_DE_csv.py
 	python -B src/get_shapefile.py
-	python -B src/make_jsons.py
 
 density:
 	python -B src/plot_density.py
