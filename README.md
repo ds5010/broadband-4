@@ -3,7 +3,7 @@ This repository takes data about Maine populations and plots them based on censu
 
 ## Instructions for Use
 ### *Step 1: Generating the Data*
-After cloning the repository, the following command will download and clean necessary data within the data directory
+After cloning the repository, the following command will download and clean necessary data, placing them within the data and docs directories
 ```
 make data
 ```
