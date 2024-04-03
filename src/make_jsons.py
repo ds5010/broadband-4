@@ -29,6 +29,7 @@ def save_dictionary():
 def main():
     # Set up both DataFrames, convert to strings for merging, merge to create new DataFrame
     geo_data = gpd.read_file("data/census_geography_2019.geojson")
+    geo_data = geo_data[geo_data.ALAND != 0] # removes water in maps
     de_data = pd.read_csv('data/maine_tract_DE_2019.csv')
     geo_data['GEOID'] = geo_data['GEOID'].astype(str)
     de_data['GEOID'] = de_data['GEOID'].astype(str)

@@ -10,6 +10,7 @@ def get_shapefile(filename='census_geography_2019.geojson', directory='data'):
     '''
     url = 'https://www2.census.gov/geo/tiger/TIGER2019/TRACT/tl_2019_23_tract.zip'
     gdf = gpd.read_file(url)
+    gdf = gdf[gdf.ALAND != 0] # removes water in maps
 
     # Save as a GeoJSON file
     filepath = os.path.join(directory, filename)
