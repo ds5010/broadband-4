@@ -1,7 +1,7 @@
 # broadband-3
 
 ## Step 0
-Run following command to download all of the data:
+Run the following command to download all of the data:
 ```
 make data
 ```
