@@ -10,7 +10,8 @@ data:
 # Creates the figs folder 
 plots:
 	mkdir -p figs
-	cd figs; curl -LO 
+	cd figs;
+	python 
 
 # Removes the data folder and all of its contents
 clean: 
