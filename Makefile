@@ -4,7 +4,7 @@
 data: 
 	mkdir -p data
 	cd data; curl -O https://www2.census.gov/geo/tiger/TIGER2019/TRACT/tl_2019_23_tract.zip
-	cd data; curl -o county_tract_total_covered_populations.xlsx "https://www2.census.gov/programs-surveys/demo/datasets/community-resilience/county_tract_total_covered_populations.xlsx?sheet=1"
+	cd data; curl -O https://www2.census.gov/programs-surveys/demo/datasets/community-resilience/county_tract_total_covered_populations.xlsx
 
 
 # Creates the json file in the data directory from the desired data contained in the zip and xlsx files	
