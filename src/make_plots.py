@@ -18,7 +18,7 @@ plot_list = [
     ["no_bb_or_computer_pop", "Tract household population w/o Broadband or Computers", "pct_no_bb_or_computer_pop", "Percent Population w/o Broadband or Computers", "Lack Broadband or Computers"],
     ["minority_pop", "Tract population of minorities", "pct_minority_pop", "Percent Minority Populations", "Minorities"],
     ["rural_pop", "Tract population living in rural areas", "pct_rural_pop", "Percent Rural Populations", "People in Rural Areas"],
-    ["lang_pop", "Tract population 5 years and older who speak a language other than English at home", "pct_lang_pop", "Percentage of tract population 5 years and older who speak a language other than English at home", "Non-native English Speakers"]
+    ["lang_pop", "Tract population ESL 5 years and older", "pct_lang_pop", "Percent ESL 5 years and older", "Non-native English Speakers"]
 ]
 
 def make_plot(gpd_obj, plot_obj):
