@@ -41,7 +41,7 @@ def make_plot(gpd_obj, plot_obj):
     ax[0].set_ylabel('Latitude', fontsize=12)
     
     # Right side of fig plot details
-    gpd_obj.plot(column=plot_obj[2], cmap=lighter, legend=True, figsize=(8,8), ax=ax[1], vmin=0, vmax=100)
+    gpd_obj.plot(column=plot_obj[2], cmap=lighter, legend=True, figsize=(8,8), ax=ax[1])
     gpd_obj.boundary.plot(ax=ax[1], linewidth=0.3, edgecolor='#333')
     ax[1].set_title(plot_obj[3], fontsize=16)
     ax[1].set_xlabel('Longitude', fontsize=12)
