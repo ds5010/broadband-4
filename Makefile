@@ -9,7 +9,10 @@ data:
 	python -B src/make_dictionary.py
 	python -B src/create_json.py
 
+plots:
+	mkdir -p figs
+	python -B src/make_plots.py
+
 # Removes the data folder and all of its contents
 clean: 
 	rm -rf data
-
