@@ -8,7 +8,7 @@ def json_info():
     
     dict = {}
     for info, row in info_data.iterrows():
-        County = row['geography_name']
+        County = row['geography_name'][:-7]
         dict[County] = {
             "County Total Population": row['county_tot_pop'],
             "DDI Total Population": row['tot_cov_pop'],
