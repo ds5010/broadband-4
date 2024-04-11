@@ -2,7 +2,6 @@
 import pandas as pd
 import json
 
-
 def save_dictionary():
     excel = 'https://www2.census.gov/programs-surveys/demo/datasets/community-resilience/county_tract_total_covered_populations.xlsx'
     dictionary_df = pd.read_excel(excel, sheet_name='Tract File Layout', skiprows=4)
