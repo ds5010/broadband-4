@@ -52,7 +52,7 @@ def make_plot(gpd_obj, plot_obj):
         
     # Save and name each figure to the specified file path
     plot_filename = plot_obj[4]
-    figs_dir = "figs"
+    figs_dir = "figs/tract"
     fig.savefig(f'{figs_dir}/{plot_filename}.png')
 
 # Read geojson file into a geopandas object
