@@ -16,7 +16,7 @@ def json_info_county_and_tract():
 
         # County level data
         if len(geoid) == 5:
-            county_name = row['geography_name'][:-7]
+            county_name = row['geography_name'].split(',')[0]  # Split the name and take the first part
             dict[geoid] = {
                 "Name": county_name,
                 "Total Population": row['county_tot_pop'],
@@ -33,8 +33,9 @@ def json_info_county_and_tract():
 
         # Tract level data
         elif len(geoid) == 11:
+            tract_name = row['geography_name'].split(',')[0]  # Split the name and take the first part
             dict[geoid] = {
-                "Name": row['geography_name'],
+                "Name": tract_name,
                 "Total Population": row['tot_cov_pop'],
                 "County Total Population": row['county_tot_pop'],
                 "DDI Total Population": row['tot_cov_pop'],
