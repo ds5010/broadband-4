@@ -1,3 +1,4 @@
+# Imports
 import matplotlib.pyplot as plt 
 import pandas as pd 
 
@@ -10,9 +11,8 @@ def clean_file_county(file):
     county.to_csv('data/county_dii.csv') #Saves the CSV to use 
 
 
-def graph_data(data, column_name, title, county_nu=16):   #made so can change the number of counties if we really only want to see the top 5 
-   '''Input-Data frame- sorts it to the top percentages
-        bar graphs'''
+def graph_data(data, column_name, title, county_nu=16):   # Can change the # of counties if you only want to see the top 5 
+   '''Input-Data frame- sorts it to the top percentages bar graphs'''
    data = data.sort_values(by=column_name, ascending=False)
    highcounties = data[:county_nu].copy() # Added copy to fix the warning.
    highcounties['geography_name'] = highcounties['geography_name'].str.slice(stop=-14) # Removed the redundant parts in the labels
@@ -20,7 +20,7 @@ def graph_data(data, column_name, title, county_nu=16):   #made so can change th
    plt.figure(figsize=(12, 8)) 
    plt.bar(counties, highcounties[column_name], label=column_name)
    
-   #Makes labels for bar graphs (Nice Touch Van!!) 
+   # Makes labels for bar graphs (Nice Touch Van!!) 
    for i, value in enumerate(highcounties[column_name]):
        plt.text(i, value, f'{value:.2f}%', ha='center', va='bottom')
 
@@ -29,7 +29,7 @@ def graph_data(data, column_name, title, county_nu=16):   #made so can change th
    plt.title(f'Maine Counties Ordered by Percent {title} Population', fontsize=16)
    plt.xticks(counties, highcounties['geography_name'], ha='right', rotation=45)  # ha moves the ticks over! 
    plt.tight_layout()
-   plt.savefig(f'img/{column_name}_bar.png') #save it 
+   plt.savefig(f'figs/bargraphs/{column_name}_bar.png') #save it 
    plt.close() 
 
 def main():
