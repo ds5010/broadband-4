@@ -173,10 +173,10 @@
         "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates",
         "chunks": [
             0,
-            6.5200000000000005,
-            13.040000000000001,
-            19.560000000000002,
-            26.080000000000002,
+            6.52,
+            13.04,
+            19.56,
+            26.08,
             32.6
         ],
         "colors": [
@@ -257,10 +257,10 @@
         "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable S0101: Age and Sex ",
         "chunks": [
             0,
-            7.340000000000001,
-            14.680000000000001,
-            22.020000000000003,
-            29.360000000000003,
+            7.34,
+            14.68,
+            22.02,
+            29.36,
             36.7
         ],
         "colors": [
@@ -303,7 +303,7 @@
             0.36,
             0.54,
             0.72,
-            0.8999999999999999
+            0.9
         ],
         "colors": [
             "#ffffcc",
@@ -343,7 +343,7 @@
             0,
             0.58,
             1.16,
-            1.7399999999999998,
+            1.74,
             2.32,
             2.9
         ],
@@ -469,7 +469,7 @@
             0,
             0.2,
             0.4,
-            0.6000000000000001,
+            0.6,
             0.8,
             1.0
         ],
@@ -593,10 +593,10 @@
         "Source(s)": "Derived from 2015-2019 ACS 5-Year file (for speaks English less than \"very well\") and 2017 Program for the International Assessment of Adult Competencies (PIAAC) Household file and 2012/2014/2017 PIAAC State and County Small Area Estimates of Adult Skills on Literacy and Numeracy (for low literacy) from the National Center for Education Statistics",
         "chunks": [
             0,
-            3.2600000000000002,
-            6.5200000000000005,
-            9.780000000000001,
-            13.040000000000001,
+            3.26,
+            6.52,
+            9.78,
+            13.04,
             16.3
         ],
         "colors": [
@@ -742,7 +742,7 @@
             0,
             3.7,
             7.4,
-            11.100000000000001,
+            11.1,
             14.8,
             18.5
         ],
@@ -763,7 +763,7 @@
             0,
             0.76,
             1.52,
-            2.2800000000000002,
+            2.28,
             3.04,
             3.8
         ],
@@ -807,7 +807,7 @@
             4.24,
             6.36,
             8.48,
-            10.600000000000001
+            10.6
         ],
         "colors": [
             "#ffffcc",
@@ -1036,7 +1036,7 @@
             0,
             0.58,
             1.16,
-            1.7399999999999998,
+            1.74,
             2.32,
             2.9
         ],
