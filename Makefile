@@ -19,6 +19,10 @@ plots:
 	python -B src/make_plots.py
 	python -B src/make_county_plots.py
 
+bars:
+	mkdir -p figs/bargraphs
+	python -B src/bar_graphs.py
+
 # Removes the data folder and all of its contents
 clean: 
 	rm -rf data
