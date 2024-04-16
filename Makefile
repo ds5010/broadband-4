@@ -11,6 +11,7 @@ data:
 	python -B src/make_county_dictionary.py
 	python -B src/create_json.py
 	python -B src/create_county_json.py
+	python -B src/assign_colors.py
 
 plots:
 	mkdir -p figs
