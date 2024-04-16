@@ -42,6 +42,7 @@ def main():
     dictionary_df["colors"] = 48 * [["#ffffcc", "#c7e9b4", "#7fcdbb",
                                      "#41b6c4", "#2c7fb8", "#253494"]]
 
+    # Maintains original format
     dictionary = dictionary_df.transpose().to_dict()
 
     with open('../docs/dictionary_with_colors.json', 'w') as file:
