@@ -3,8 +3,8 @@
         "Column": 1,
         "Description": "Combined state (2-digit) + county (3-digit) FIPS codes + '000000' for tracts",
         "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates",
-        "chunks": null,
-        "colors": [
+        "domain": null,
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -17,8 +17,8 @@
         "Column": 2,
         "Description": "County name",
         "Source(s)": "U.S. Census Bureau, 2015-2019 ACS 5-Year Simplified Geography Files",
-        "chunks": null,
-        "colors": [
+        "domain": null,
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -31,8 +31,8 @@
         "Column": 3,
         "Description": "Rural/urban status \n\"Rural\" indicates county is wholly contained in a rural area; \"Not rural\" denotes otherwise.",
         "Source(s)": "Digital Equity Act definition of \"rural areas\" applied to 2015-2019 5-Year American Community Survey (ACS) Estimates.  ",
-        "chunks": null,
-        "colors": [
+        "domain": null,
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -45,7 +45,7 @@
         "Column": 4,
         "Description": "2019 County resident population",
         "Source(s)": "U.S. Census Bureau, Population Estimates Program, Vintage 2019 County and Puerto Rico Municipio Population Estimates",
-        "chunks": [
+        "domain": [
             0,
             59000,
             118001,
@@ -53,7 +53,7 @@
             236002,
             295003
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -66,7 +66,7 @@
         "Column": 5,
         "Description": "2019 Total covered populations in county (population with 1 or more of the eight characteristics that make up the total covered populations as defined by the Digital Equity Act of 2021)",
         "Source(s)": "U.S. Census Bureau, 2019 Modeled Total Covered Population Estimates.\nSmall area model of total covered populations derived from 2019 ACS 1-Year file, Vintage 2019 County and Puerto Rico Municipio Population Estimates, 2010 Decennial Census, 2015-2019 ACS 5-Year file, 2017 Program for the International Assessment of Adult Competencies (PIAAC) Household file and 2012/2014/2017 PIAAC State and County Small Area Estimates of Adult Skills on Literacy and Numeracy from the National Education Center for Education Statistics.",
-        "chunks": [
+        "domain": [
             0,
             43043,
             86086,
@@ -74,7 +74,7 @@
             172172,
             215216
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -87,7 +87,7 @@
         "Column": 6,
         "Description": "2019 Percentage of county population in total covered populations",
         "Source(s)": "U.S. Census Bureau, 2019 Modeled Total Covered Population Estimates",
-        "chunks": [
+        "domain": [
             0,
             20.0,
             40.0,
@@ -95,7 +95,7 @@
             80.0,
             100.0
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -108,7 +108,7 @@
         "Column": 7,
         "Description": "2019 Total covered populations in county (population with 1 or more of the eight characteristics that make up the total covered populations as defined by the Digital Equity Act of 2021) margin of error",
         "Source(s)": "U.S. Census Bureau, 2019 Modeled Total Covered Population Estimates.\nMargin of error at the 90 percent confidence level.",
-        "chunks": [
+        "domain": [
             0,
             2812,
             5625,
@@ -116,7 +116,7 @@
             11250,
             14063
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -129,7 +129,7 @@
         "Column": 8,
         "Description": "2019 Percentage of county population in total covered populations margin of error",
         "Source(s)": "U.S. Census Bureau, 2019 Modeled Total Covered Population Estimates.\nMargin of error at the 90 percent confidence level.",
-        "chunks": [
+        "domain": [
             0,
             0.96,
             1.92,
@@ -137,7 +137,7 @@
             3.84,
             4.8
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -150,7 +150,7 @@
         "Column": 9,
         "Description": "2015-2019 County household population in \"covered households\" (living in households with income-to-poverty ratio no more than 150 percent of federal poverty threshold)",
         "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates.\nEstimate is rounded to 4 significant digits. ",
-        "chunks": [
+        "domain": [
             0,
             8166,
             16332,
@@ -158,7 +158,7 @@
             32664,
             40830
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -171,7 +171,7 @@
         "Column": 10,
         "Description": "2015-2019 Percentage of household population in \"covered households\" in county (living in households with income-to-poverty ratio no more than 150 percent of federal poverty threshold)",
         "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates",
-        "chunks": [
+        "domain": [
             0,
             6.52,
             13.04,
@@ -179,7 +179,7 @@
             26.08,
             32.6
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -192,7 +192,7 @@
         "Column": 11,
         "Description": "2015-2019 County household population in \"covered households\" (living in households with income-to-poverty ratio no more than 150 percent of federal poverty threshold) margin of error",
         "Source(s)": "Margin of error at the 90 percent confidence level.\nEstimate is rounded to 4 significant digits. ",
-        "chunks": [
+        "domain": [
             0,
             391,
             783,
@@ -200,7 +200,7 @@
             1567,
             1959
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -213,7 +213,7 @@
         "Column": 12,
         "Description": "2015-2019 Percentage of household population in \"covered households\" in county (living in households with income-to-poverty ratio no more than 150 percent of federal poverty threshold) margin of error",
         "Source(s)": "Margin of error at the 90 percent confidence level",
-        "chunks": [
+        "domain": [
             0,
             0.52,
             1.04,
@@ -221,7 +221,7 @@
             2.08,
             2.6
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -234,7 +234,7 @@
         "Column": 13,
         "Description": "2015-2019 County population age 60 years and older",
         "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable S0101: Age and Sex ",
-        "chunks": [
+        "domain": [
             0,
             14409,
             28819,
@@ -242,7 +242,7 @@
             57639,
             72049
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -255,7 +255,7 @@
         "Column": 14,
         "Description": "2015-2019 Percentage of county population age 60 years and older ",
         "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable S0101: Age and Sex ",
-        "chunks": [
+        "domain": [
             0,
             7.34,
             14.68,
@@ -263,7 +263,7 @@
             29.36,
             36.7
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -276,7 +276,7 @@
         "Column": 15,
         "Description": "2015-2019 County population age 60 years and older margin of error",
         "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable S0101: Age and Sex.\nMargin of error at the 90 percent confidence level. ",
-        "chunks": [
+        "domain": [
             0,
             139,
             278,
@@ -284,7 +284,7 @@
             556,
             696
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -297,7 +297,7 @@
         "Column": 16,
         "Description": "2015-2019 Percentage of county population age 60 years and older margin of error",
         "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable S0101: Age and Sex.\nMargin of error at the 90 percent confidence level. ",
-        "chunks": [
+        "domain": [
             0,
             0.18,
             0.36,
@@ -305,7 +305,7 @@
             0.72,
             0.9
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -318,7 +318,7 @@
         "Column": 17,
         "Description": "2015-2019 County population incarcerated in a state or local correctional facility",
         "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates.\nEstimate is rounded to 4 significant digits. ",
-        "chunks": [
+        "domain": [
             0,
             228,
             456,
@@ -326,7 +326,7 @@
             912,
             1141
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -339,7 +339,7 @@
         "Column": 18,
         "Description": "2015-2019 Percentage of county population incarcerated in a state or local correctional facility",
         "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates.\nEstimate is rounded to 4 significant digits. ",
-        "chunks": [
+        "domain": [
             0,
             0.58,
             1.16,
@@ -347,7 +347,7 @@
             2.32,
             2.9
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -360,7 +360,7 @@
         "Column": 19,
         "Description": "2015-2019 County population incarcerated in a state or local correctional facility margin of error",
         "Source(s)": " \nMargin of error at the 90 percent confidence level. \nEstimate is rounded to 4 significant digits.",
-        "chunks": [
+        "domain": [
             0,
             39,
             79,
@@ -368,7 +368,7 @@
             158,
             198
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -381,7 +381,7 @@
         "Column": 20,
         "Description": "2015-2019 Percentage of county population incarcerated in a state or local correctional facility margin of error",
         "Source(s)": " \nMargin of error at the 90 percent confidence level. \nEstimate is rounded to 4 significant digits.",
-        "chunks": [
+        "domain": [
             0,
             0.08,
             0.16,
@@ -389,7 +389,7 @@
             0.32,
             0.4
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -402,7 +402,7 @@
         "Column": 21,
         "Description": "2015-2019 County veteran population age 18 years and older",
         "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable B21001: Sex by Age by Veteran Status for the Civilian Population 18 Years and Over.  ",
-        "chunks": [
+        "domain": [
             0,
             3390,
             6780,
@@ -410,7 +410,7 @@
             13560,
             16950
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -423,7 +423,7 @@
         "Column": 22,
         "Description": "2015-2019 Percentage of county population who are veterans aged 18 years or older",
         "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable B21001: Sex by Age by Veteran Status for the Civilian Population 18 Years and Over. \nCounty resident population.  ",
-        "chunks": [
+        "domain": [
             0,
             2.08,
             4.16,
@@ -431,7 +431,7 @@
             8.32,
             10.4
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -444,7 +444,7 @@
         "Column": 23,
         "Description": "2015-2019 County veteran population age 18 years and older margin of error",
         "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable B21001: Sex by Age by Veteran Status for the Civilian Population 18 Years and Over. \nMargin of error at the 90 percent confidence level.",
-        "chunks": [
+        "domain": [
             0,
             156,
             312,
@@ -452,7 +452,7 @@
             625,
             782
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -465,7 +465,7 @@
         "Column": 24,
         "Description": "2015-2019 Percentage of county population who are veterans aged 18 years or older margin of error",
         "Source(s)": "Margin of error at the 90 percent confidence level",
-        "chunks": [
+        "domain": [
             0,
             0.2,
             0.4,
@@ -473,7 +473,7 @@
             0.8,
             1.0
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -486,7 +486,7 @@
         "Column": 25,
         "Description": "2015-2019 County population with one or more disabilities",
         "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates.\nEstimate is rounded to 4 significant digits.",
-        "chunks": [
+        "domain": [
             0,
             6982,
             13964,
@@ -494,7 +494,7 @@
             27928,
             34910
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -507,7 +507,7 @@
         "Column": 26,
         "Description": "2015-2019 Percentage of county population with one or more disabilities ",
         "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates",
-        "chunks": [
+        "domain": [
             0,
             5.38,
             10.76,
@@ -515,7 +515,7 @@
             21.52,
             26.9
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -528,7 +528,7 @@
         "Column": 27,
         "Description": "2015-2019 County population with one or more disabilities margin of error",
         "Source(s)": "Margin of error at the 90 percent confidence level. \nEstimate is rounded to 4 significant digits.  ",
-        "chunks": [
+        "domain": [
             0,
             277,
             554,
@@ -536,7 +536,7 @@
             1109,
             1387
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -549,7 +549,7 @@
         "Column": 28,
         "Description": "2015-2019 Percentage of county population with one or more disabilities margin of error",
         "Source(s)": "Margin of error at the 90 percent confidence level",
-        "chunks": [
+        "domain": [
             0,
             0.32,
             0.64,
@@ -557,7 +557,7 @@
             1.28,
             1.6
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -570,7 +570,7 @@
         "Column": 29,
         "Description": "2015-2019 County population with a language barrier (Speaks English less than \"very well\" or has low levels of literacy)",
         "Source(s)": "Derived from 2015-2019 ACS 5-Year file (for speaks English less than \"very well\") and 2017 Program for the International Assessment of Adult Competencies (PIAAC) Household file and 2012/2014/2017 PIAAC State and County Small Area Estimates of Adult Skills on Literacy and Numeracy (for low literacy) from the National Center for Education Statistics. \nEstimate is rounded to 4 significant digits.",
-        "chunks": [
+        "domain": [
             0,
             5492,
             10984,
@@ -578,7 +578,7 @@
             21968,
             27460
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -591,7 +591,7 @@
         "Column": 30,
         "Description": "2015-2019 Percentage of county population with a language barrier (Speaks English less than \"very well\" or has low levels of literacy)",
         "Source(s)": "Derived from 2015-2019 ACS 5-Year file (for speaks English less than \"very well\") and 2017 Program for the International Assessment of Adult Competencies (PIAAC) Household file and 2012/2014/2017 PIAAC State and County Small Area Estimates of Adult Skills on Literacy and Numeracy (for low literacy) from the National Center for Education Statistics",
-        "chunks": [
+        "domain": [
             0,
             3.26,
             6.52,
@@ -599,7 +599,7 @@
             13.04,
             16.3
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -612,7 +612,7 @@
         "Column": 31,
         "Description": "2015-2019 County population with a language barrier (Speaks English less than \"very well\" or has low levels of literacy) margin of error",
         "Source(s)": "Margin of error at the 90 percent confidence level.\nMargin of error accounts for sampling error in the ACS but not the uncertainty introduced by the low literacy imputation.\nEstimate is rounded to 4 significant digits. ",
-        "chunks": [
+        "domain": [
             0,
             225,
             451,
@@ -620,7 +620,7 @@
             902,
             1128
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -633,7 +633,7 @@
         "Column": 32,
         "Description": "2015-2019 Percentage of county population with a language barrier (Speaks English less than \"very well\" or has low levels of literacy) margin of error",
         "Source(s)": "Margin of error at the 90 percent confidence level.\nMargin of error accounts for sampling error in the ACS but not the uncertainty introduced by the low literacy imputation. ",
-        "chunks": [
+        "domain": [
             0,
             0.26,
             0.52,
@@ -641,7 +641,7 @@
             1.04,
             1.3
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -654,7 +654,7 @@
         "Column": 33,
         "Description": "2015-2019 County population 5 years and older who speak a language other than English at home and speak English less than \"very well\"",
         "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable S1601: Language Spoken at Home",
-        "chunks": [
+        "domain": [
             0,
             1367,
             2734,
@@ -662,7 +662,7 @@
             5469,
             6837
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -675,7 +675,7 @@
         "Column": 34,
         "Description": "2015-2019 Percentage of county population 5 years and older who speak a language other than English at home and speak English less than \"very well\" ",
         "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable S1601: Language Spoken at Home",
-        "chunks": [
+        "domain": [
             0,
             0.64,
             1.28,
@@ -683,7 +683,7 @@
             2.56,
             3.2
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -696,7 +696,7 @@
         "Column": 35,
         "Description": "2015-2019 county population 5 years and older who speak a language other than English at home and speak English less than \"very well\" margin of error",
         "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable S1601: Language Spoken at Home. \nMargin of error at the 90 percent confidence level. ",
-        "chunks": [
+        "domain": [
             0,
             117,
             234,
@@ -704,7 +704,7 @@
             468,
             586
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -717,7 +717,7 @@
         "Column": 36,
         "Description": "2015-2019 Percentage of county population 5 years and older who speak a language other than English at home and speak English less than \"very well\" state margin of error",
         "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable S1601: Language Spoken at Home.\nMargin of error at the 90 percent confidence level. ",
-        "chunks": [
+        "domain": [
             0,
             0.12,
             0.24,
@@ -725,7 +725,7 @@
             0.48,
             0.6
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -738,7 +738,7 @@
         "Column": 37,
         "Description": "Percentage of county population with low levels of literacy (Level 1 or Below in literacy assessment rubric)",
         "Source(s)": "National Center for Education Statistics, 2012/2014/2017 Program for the International Assessment of Adult Competencies State Small Area Estimates of Adult Skills on Literacy and Numeracy",
-        "chunks": [
+        "domain": [
             0,
             3.7,
             7.4,
@@ -746,7 +746,7 @@
             14.8,
             18.5
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -759,7 +759,7 @@
         "Column": 38,
         "Description": "Percentage of county population with low levels of literacy (Level 1 or Below in literacy assessment rubric) margin of error",
         "Source(s)": "National Center for Education Statistics, 2012/2014/2017 Program for the International Assessment of Adult Competencies State Small Area Estimates of Adult Skills on Literacy and Numeracy.\nMargin of error at the 90 percent confidence level. ",
-        "chunks": [
+        "domain": [
             0,
             0.76,
             1.52,
@@ -767,7 +767,7 @@
             3.04,
             3.8
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -780,7 +780,7 @@
         "Column": 39,
         "Description": "2015-2019 County population who identify as a race other than White alone or as Hispanic or Latino of any race",
         "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates,\nTable DP05: ACS Demographic and Housing Estimates",
-        "chunks": [
+        "domain": [
             0,
             5677,
             11354,
@@ -788,7 +788,7 @@
             22708,
             28386
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -801,7 +801,7 @@
         "Column": 40,
         "Description": "2015-2019 Percentage of county population who identify as a race other than White alone or as Hispanic or Latino of any race ",
         "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates,\nTable DP05: ACS Demographic and Housing Estimates",
-        "chunks": [
+        "domain": [
             0,
             2.12,
             4.24,
@@ -809,7 +809,7 @@
             8.48,
             10.6
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -822,7 +822,7 @@
         "Column": 41,
         "Description": "2015-2019 County population who identify as a race other than White alone or as Hispanic or Latino of any race margin of error",
         "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates,\nTable DP05: ACS Demographic and Housing Estimates.\nMargin of error at the 90 percent confidence level. ",
-        "chunks": [
+        "domain": [
             0,
             55,
             111,
@@ -830,7 +830,7 @@
             222,
             278
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -843,7 +843,7 @@
         "Column": 42,
         "Description": "2015-2019 Percentage of county population who identify as a race other than White alone or as Hispanic or Latino of any race margin of error",
         "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates,\nTable DP05: ACS Demographic and Housing Estimates.\nMargin of error at the 90 percent confidence level. ",
-        "chunks": [
+        "domain": [
             0,
             0.08,
             0.16,
@@ -851,7 +851,7 @@
             0.32,
             0.4
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -864,7 +864,7 @@
         "Column": 43,
         "Description": "2015-2019 County population living in rural areas",
         "Source(s)": "Digital Equity Act definition of \"rural areas\" applied to 2015-2019 5-Year American Community Survey (ACS) Estimates.\nEstimate is rounded to 4 significant digits.",
-        "chunks": [
+        "domain": [
             0,
             27540,
             55080,
@@ -872,7 +872,7 @@
             110160,
             137700
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -885,7 +885,7 @@
         "Column": 44,
         "Description": "2015-2019 Percentage of county population living in rural areas ",
         "Source(s)": "Digital Equity Act definition of \"rural areas\" applied to 2015-2019 5-Year American Community Survey (ACS) Estimates",
-        "chunks": [
+        "domain": [
             0,
             20.0,
             40.0,
@@ -893,7 +893,7 @@
             80.0,
             100.0
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -906,7 +906,7 @@
         "Column": 45,
         "Description": "2015-2019 County population living in rural areas margin of error",
         "Source(s)": " \nMargin of error at the 90 percent confidence level. \nEstimate is rounded to 4 significant digits.",
-        "chunks": [
+        "domain": [
             0,
             253,
             506,
@@ -914,7 +914,7 @@
             1012,
             1266
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -927,7 +927,7 @@
         "Column": 46,
         "Description": "2015-2019 Percentage of county population living in rural areas margin of error",
         "Source(s)": " \nMargin of error at the 90 percent confidence level. ",
-        "chunks": [
+        "domain": [
             0,
             0.08,
             0.16,
@@ -935,7 +935,7 @@
             0.32,
             0.4
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -948,7 +948,7 @@
         "Column": 47,
         "Description": "2015-2019 Percentage of county population living in places where fixed broadband service delivering advertised speeds of at least 25 Mbps download and 3 Mbps upload is not available",
         "Source(s)": "Federal Communications Commission (FCC), Fourteenth Broadband Deployment Report, released January 19, 2021. Appendix D.",
-        "chunks": [
+        "domain": [
             0,
             3.56,
             7.12,
@@ -956,7 +956,7 @@
             14.24,
             17.8
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -969,7 +969,7 @@
         "Column": 48,
         "Description": "2015-2019 County household population that lack a computing device and/or broadband subscription",
         "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates,\nTable S2802: Types of Internet Subscriptions by Selected Characteristics ",
-        "chunks": [
+        "domain": [
             0,
             5000,
             10000,
@@ -977,7 +977,7 @@
             20000,
             25000
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -990,7 +990,7 @@
         "Column": 49,
         "Description": "2015-2019 Percentage of county household population that lack a computing device and/or broadband subscription",
         "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates,\nTable S2802: Types of Internet Subscriptions by Selected Characteristics ",
-        "chunks": [
+        "domain": [
             0,
             5.12,
             10.24,
@@ -998,7 +998,7 @@
             20.48,
             25.6
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -1011,7 +1011,7 @@
         "Column": 50,
         "Description": "2015-2019 County household population that lack a computing device and/or broadband subscription margin of error",
         "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates,\nTable S2802: Types of Internet Subscriptions by Selected Characteristics.\nMargin of error at the 90 percent confidence level.  ",
-        "chunks": [
+        "domain": [
             0,
             322,
             644,
@@ -1019,7 +1019,7 @@
             1288,
             1611
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",
@@ -1032,7 +1032,7 @@
         "Column": 51,
         "Description": "2015-2019 County household population that lack a computing device and/or broadband subscription margin of error",
         "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates,\nTable S2802: Types of Internet Subscriptions by Selected Characteristics.\nMargin of error at the 90 percent confidence level.  ",
-        "chunks": [
+        "domain": [
             0,
             0.58,
             1.16,
@@ -1040,7 +1040,7 @@
             2.32,
             2.9
         ],
-        "colors": [
+        "range": [
             "#ffffcc",
             "#c7e9b4",
             "#7fcdbb",

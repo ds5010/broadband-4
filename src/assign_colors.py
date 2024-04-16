@@ -44,8 +44,8 @@ def main():
 
     chunk_list = assign_chunks("../docs/data.json", 15, -1)
     dictionary_df = pd.read_json("../docs/dictionary.json").transpose()
-    dictionary_df["chunks"] = chunk_list
-    dictionary_df["colors"] = 48 * colors
+    dictionary_df["domain"] = chunk_list
+    dictionary_df["range"] = 48 * colors
 
     # Maintains original format
     dictionary = dictionary_df.transpose().to_dict()
@@ -55,8 +55,8 @@ def main():
 
     chunk_list_2 = assign_chunks("../docs/data_county.json", 16, -2)
     dictionary_df_2 = pd.read_json("../docs/dictionary_county.json").transpose()
-    dictionary_df_2["chunks"] = chunk_list_2
-    dictionary_df_2["colors"] = 51 * colors
+    dictionary_df_2["domain"] = chunk_list_2
+    dictionary_df_2["range"] = 51 * colors
 
     # Maintains original format
     dictionary_2 = dictionary_df_2.transpose().to_dict()
