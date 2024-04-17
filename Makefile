@@ -12,6 +12,7 @@ data:
 	python -B src/create_json.py
 	python -B src/create_county_json.py
 	python -B src/assign_colors.py
+	python -B src/create_county_data.py
 
 plots:
 	mkdir -p figs
@@ -25,5 +26,5 @@ bars:
 	python -B src/bar_graphs.py
 
 # Removes the data folder and all of its contents
-clean: 
+clean:
 	rm -rf data
