@@ -4,14 +4,14 @@ import pandas as pd
 import json
 import numpy as np
 
-def json_info_tract(filename='../docs/tract_information.json'):
+def json_info_tract(filename='docs/tract_information.json'):
     '''
     this function reads the tract data from the excel file and saves it as a json file called 'tract_information.json'
     :param filename: tract_information.json
     :return: None
     '''
     sheet_name = 'tract_total_covered_populations'
-    info_data = pd.read_excel("../data/county_tract_total_covered_populations.xlsx", sheet_name=sheet_name)
+    info_data = pd.read_excel("data/county_tract_total_covered_populations.xlsx", sheet_name=sheet_name)
     info_data = info_data[info_data['geo_id'].astype(str).str[:2] == '23']  # Extracting only Maine data
     info_data['geo_id'] = info_data['geo_id'].astype(str)
     print("Saving tract data to: " + filename)
@@ -52,7 +52,7 @@ def json_info_tract(filename='../docs/tract_information.json'):
     except Exception as e:
         print('An error occurred while saving the tract data:', str(e))
 
-def create_json(filename='../docs/tracts.json'):
+def create_json(filename='docs/tracts.json'):
     '''
     this function creates a geojson file with the tract data and
     saves calling it 'tracts.json' while merging the tract data with the popup data
@@ -63,8 +63,8 @@ def create_json(filename='../docs/tracts.json'):
     json_info_tract()
     
     # Create dataframes
-    geo_data = gpd.read_file("../data/tl_2019_23_tract.zip").query('ALAND > 0') # Removes water from maps
-    de_data = pd.read_excel("../data/county_tract_total_covered_populations.xlsx", sheet_name='tract_total_covered_populations')
+    geo_data = gpd.read_file("data/tl_2019_23_tract.zip").query('ALAND > 0') # Removes water from maps
+    de_data = pd.read_excel("data/county_tract_total_covered_populations.xlsx", sheet_name='tract_total_covered_populations')
 
     # Clean and merge
     de_data = de_data[de_data['geo_id'].astype(str).str[:2] == '23'] # Extracting only maine data
