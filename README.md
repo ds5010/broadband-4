@@ -108,7 +108,7 @@ make plots
 </p><br>
 
 ### *Step 3: Reproducing the County Bar Graphs*
-The following command will plot bar graphs that compare all 16 of Maine's counties based on numerous factors. These will then be saved in the `figs/bargraphs` directory. The comparison factors include *Percent Low Income/Poverty Population, Percent Ages 60+ Population, Percent Incarcerated Population, Percent Disability Population, Percent Veterans Population, Percent Language Barrier Population, Percent Minority Population, and Percent Rural Population*.
+The following command will plot the bar graphs that compare all 16 of Maine's counties based on numerous factors. These will then be saved in the `figs/bargraphs` directory. The comparison factors include *Percent Low Income/Poverty Population, Percent Ages 60+ Population, Percent Incarcerated Population, Percent Disability Population, Percent Veterans Population, Percent Language Barrier Population, Percent Minority Population, and Percent Rural Population*. More information on these bargraphs can be found in `bargraph_story.md`.
 ```
 make bars
 ```
