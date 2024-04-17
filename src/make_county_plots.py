@@ -3,8 +3,7 @@ import geopandas as gpd
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import pandas as pd
-import numpy as np
-import matplotlib.colors as colors
+import assign_colors
 
 # List of lists of plot column names, titles and fig filenames, 2 pairs of column name / title and one filename.
 plot_list = [
@@ -24,25 +23,46 @@ plot_list = [
 
 def make_plot(gpd_obj, plot_obj):
     # Plotting combined data 
-    cmap = mpl.cm.RdYlGn_r
-    lighter = colors.ListedColormap(cmap(np.linspace(0.125, 0.875, 256)))    
-    fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(12, 6))
-
+    
     # Convert the data in the column with these indices to numeric, fill missing values in columns with 0's
     indices_to_convert = [0, 2]
     for index in indices_to_convert:
         gpd_obj[plot_obj[index]] = pd.to_numeric(gpd_obj[plot_obj[index]], errors='coerce')
         gpd_obj[plot_obj[index]] = gpd_obj[plot_obj[index]].fillna(0)  # Data cleaning
     
+    inner_list = assign_colors.colors[0]
+    color_list = inner_list[:5]
+
+    # Calculate the range for each color
+    min_val = gpd_obj[plot_obj[0]].min()
+    max_val = gpd_obj[plot_obj[0]].max()
+    min_val2 = gpd_obj[plot_obj[2]].min()
+    max_val2 = gpd_obj[plot_obj[2]].max()
+    interval = (max_val - min_val) / len(color_list)
+    interval2 = (max_val2 - min_val2) / len(color_list)
+
+    # Define color bins based on the range and color_list
+    color_bins_pop = [min_val + i * interval for i in range(len(color_list))]
+    color_bins_pop.append(max_val)  # Include the maximum value
+    color_bins_pct = [min_val2 + i * interval2 for i in range(len(color_list))]
+    color_bins_pct.append(max_val2)  # Include the maximum value
+
+    # Plotting combined data
+    cmap_pop = mpl.colors.ListedColormap(color_list)
+    norm_pop = mpl.colors.BoundaryNorm(color_bins_pop, cmap_pop.N)
+    cmap_pct = mpl.colors.ListedColormap(color_list)
+    norm_pct = mpl.colors.BoundaryNorm(color_bins_pct, cmap_pct.N)
+    fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(12, 6))
+
     # Left side of fig plot details
-    gpd_obj.plot(column=plot_obj[0], cmap=lighter, legend=True, figsize=(8,8), ax=ax[0])
+    gpd_obj.plot(column=plot_obj[0], cmap=cmap_pop, norm=norm_pop, legend=True, figsize=(8,8), ax=ax[0])
     gpd_obj.boundary.plot(ax=ax[0], linewidth=0.3, edgecolor='#333')
     ax[0].set_title(plot_obj[1], fontsize=16)
     ax[0].set_xlabel('Longitude', fontsize=12)
     ax[0].set_ylabel('Latitude', fontsize=12)
     
     # Right side of fig plot details
-    gpd_obj.plot(column=plot_obj[2], cmap=lighter, legend=True, figsize=(8,8), ax=ax[1])
+    gpd_obj.plot(column=plot_obj[2], cmap=cmap_pct, norm=norm_pct, legend=True, figsize=(8,8), ax=ax[1])
     gpd_obj.boundary.plot(ax=ax[1], linewidth=0.3, edgecolor='#333')
     ax[1].set_title(plot_obj[3], fontsize=16)
     ax[1].set_xlabel('Longitude', fontsize=12)
@@ -57,7 +77,7 @@ def make_plot(gpd_obj, plot_obj):
     fig.savefig(f'{figs_dir}/{plot_filename}.png')
 
 # Read geojson file into a geopandas object
-gpd_obj = gpd.read_file('docs/data_county.json')
+gpd_obj = gpd.read_file('docs/counties.json')
 
 # Iterate through plot lists and call make_plot to create pngs and save each
 for plot_obj in plot_list:
