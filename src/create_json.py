@@ -2,6 +2,7 @@
 import geopandas as gpd
 import pandas as pd
 import json
+import numpy as np
 
 def json_info_tract(filename='../docs/tract_information.json'):
     '''
@@ -72,7 +73,7 @@ def create_json(filename='../docs/tracts.json'):
     combined_data['geo_id'] = combined_data['geo_id'].astype(int)
 
     # Calculate population density
-    combined_data['pop_density'] = combined_data['tract_tot_pop'].astype(float) / (combined_data['ALAND'].astype(float) / 1e6)
+    combined_data['pop_density'] = combined_data['tract_tot_pop'].astype(np.float64) / combined_data['ALAND'] * 2589988
 
     # Download as geojson in docs directory
     combined_data.to_file(filename, driver='GeoJSON')
