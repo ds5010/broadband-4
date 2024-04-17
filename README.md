@@ -106,3 +106,33 @@ make plots
 <p align="center">
     <img src="figs/county/County-level Only Columns.png" width="700">
 </p><br>
+
+### *Step 3: Reproducing the County Bar Graphs*
+The following command will plot bar graphs that compare all 16 of Maine's counties based on numerous factors. These will then be saved in the `figs/bargraphs` directory. The comparison factors include *Percent Low Income/Poverty Population, Percent Ages 60+ Population, Percent Incarcerated Population, Percent Disability Population, Percent Veterans Population, Percent Language Barrier Population, Percent Minority Population, and Percent Rural Population*.
+```
+make bars
+```
+<p align="center">
+    <img src="figs/bargraphs/pct_ipr_pop_bar.png" width="550">
+</p><br>
+<p align="center">
+    <img src="figs/bargraphs/pct_aging_pop_bar.png" width="550">
+</p><br>
+<p align="center">
+    <img src="figs/bargraphs/pct_incarc_pop_bar.png" width="550">
+</p><br>
+<p align="center">
+    <img src="figs/bargraphs/pct_dis_pop_bar.png" width="550">
+</p><br>
+<p align="center">
+    <img src="figs/bargraphs/pct_vet_pop_bar.png" width="550">
+</p><br>
+<p align="center">
+    <img src="figs/bargraphs/pct_lang_barrier_pop_bar.png" width="550">
+</p><br>
+<p align="center">
+    <img src="figs/bargraphs/pct_minority_pop_bar.png" width="550">
+</p><br>
+<p align="center">
+    <img src="figs/bargraphs/pct_rural_pop_bar.png" width="550">
+</p><br>
