@@ -1,0 +1,989 @@
+{
+    "geo_id": {
+        "Column": 1,
+        "Description": "Combined state (2-digit) + county (3-digit) + tract (6-digit) code",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates",
+        "domain": null,
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "geography_name": {
+        "Column": 2,
+        "Description": "Census tract name with county and state names",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 ACS 5-Year Simplified Geography Files",
+        "domain": null,
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "rural": {
+        "Column": 3,
+        "Description": "Rural/urban status \n\"Rural\" indicates tract is wholly contained in a rural area; \"Not rural\" denotes otherwise.",
+        "Source(s)": "Digital Equity Act definition of \"rural areas\" applied to 2015-2019 5-Year American Community Survey (ACS) Estimates.  ",
+        "domain": null,
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "tract_tot_pop": {
+        "Column": 4,
+        "Description": "2019 Tract resident population",
+        "Source(s)": "U.S. Census Bureau, 2019 Modeled Total Covered Population Estimates, \n2019 Synthetic population.",
+        "domain": [
+            0,
+            1693,
+            3387,
+            5081,
+            6775,
+            8469
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "tot_cov_pop": {
+        "Column": 5,
+        "Description": "2019 Total covered populations in tract (population with 1 or more of the eight characteristics that make up the total covered populations as defined by the Digital Equity Act of 2021)",
+        "Source(s)": "U.S. Census Bureau, 2019 Modeled Total Covered Population Estimates.\nSmall area model of total covered populations derived from 2019 ACS 1-Year file, Vintage 2019 County and Puerto Rico Municipio Population Estimates, 2010 Decennial Census, 2015-2019 ACS 5-Year file, 2017 Program for the International Assessment of Adult Competencies (PIAAC) Household file and 2012/2014/2017 PIAAC State and County Small Area Estimates of Adult Skills on Literacy and Numeracy from the National Education Center for Education Statistics.",
+        "domain": [
+            0,
+            1659,
+            3319,
+            4978,
+            6638,
+            8298
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_tot_cov_pop": {
+        "Column": 6,
+        "Description": "2019 Percentage of tract population in total covered populations",
+        "Source(s)": "U.S. Census Bureau, 2019 Modeled Total Covered Population Estimates.",
+        "domain": [
+            0,
+            20.0,
+            40.0,
+            60.0,
+            80.0,
+            100.0
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "tot_cov_pop_MOE": {
+        "Column": 7,
+        "Description": "2019 Total covered populations in tract (population with 1 or more of the eight characteristics that make up the total covered populations as defined by the Digital Equity Act of 2021) margin of error",
+        "Source(s)": "U.S. Census Bureau, 2019 Modeled Total Covered Population Estimates.\nMargin of error at the 90 percent confidence level.",
+        "domain": [
+            0,
+            155,
+            311,
+            466,
+            622,
+            778
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_tot_cov_MOE": {
+        "Column": 8,
+        "Description": "2019 Percentage of tract population in total covered populations margin of error",
+        "Source(s)": "U.S. Census Bureau, 2019 Modeled Total Covered Population Estimates.\nMargin of error at the 90 percent confidence level.",
+        "domain": [
+            0,
+            2.34,
+            4.68,
+            7.02,
+            9.36,
+            11.7
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "ipr_pop": {
+        "Column": 9,
+        "Description": "2015-2019 Tract household population in \"covered households\" (living in households with income-to-poverty ratio no more than 150 percent of federal poverty threshold)",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates.\nEstimate is rounded to 4 significant digits. ",
+        "domain": [
+            0,
+            593,
+            1186,
+            1780,
+            2373,
+            2967
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_ipr_pop": {
+        "Column": 10,
+        "Description": "2015-2019 Percentage of household population in \"covered households\" in tract (living in households with income-to-poverty ratio no more than 150 percent of federal poverty threshold)",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates",
+        "domain": [
+            0,
+            13.88,
+            27.76,
+            41.64,
+            55.52,
+            69.4
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "ipr_pop_MOE": {
+        "Column": 11,
+        "Description": "2015-2019 Tract household population in \"covered households\" (living in households with income-to-poverty ratio no more than 150 percent of federal poverty threshold) margin of error",
+        "Source(s)": "Margin of error at the 90 percent confidence level.\nEstimate is rounded to 4 significant digits. ",
+        "domain": [
+            0,
+            128,
+            256,
+            385,
+            513,
+            642
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_ipr_MOE": {
+        "Column": 12,
+        "Description": "2015-2019 Percentage of household population in \"covered households\" in tract (living in households with income-to-poverty ratio no more than 150 percent of federal poverty threshold) margin of error",
+        "Source(s)": "Margin of error at the 90 percent confidence level",
+        "domain": [
+            0,
+            2.5,
+            5.0,
+            7.5,
+            10.0,
+            12.5
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "aging_pop": {
+        "Column": 13,
+        "Description": "2015-2019 Tract population age 60 years and older",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable S0101: Age and Sex ",
+        "domain": [
+            0,
+            730,
+            1461,
+            2192,
+            2923,
+            3654
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_aging_pop": {
+        "Column": 14,
+        "Description": "2015-2019 Percentage of tract population age 60 years and older ",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable S0101: Age and Sex ",
+        "domain": [
+            0,
+            11.08,
+            22.16,
+            33.24,
+            44.32,
+            55.4
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "aging_pop_MOE": {
+        "Column": 15,
+        "Description": "2015-2019 Tract population age 60 years and older margin of error",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable S0101: Age and Sex.\nMargin of error at the 90 percent confidence level. ",
+        "domain": [
+            0,
+            76,
+            152,
+            228,
+            304,
+            380
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_aging_MOE": {
+        "Column": 16,
+        "Description": "2015-2019 Percentage of tract population age 60 years and older margin of error",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable S0101: Age and Sex.\nMargin of error at the 90 percent confidence level. ",
+        "domain": [
+            0,
+            2.1,
+            4.2,
+            6.3,
+            8.4,
+            10.5
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "incarc_pop": {
+        "Column": 17,
+        "Description": "2015-2019 Tract population incarcerated in a state or local correctional facility",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates.\nEstimate is rounded to 4 significant digits. ",
+        "domain": [
+            0,
+            215,
+            430,
+            646,
+            861,
+            1077
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_incarc_pop": {
+        "Column": 18,
+        "Description": "2015-2019 Percentage of tract population incarcerated in a state or local correctional facility",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates.\nEstimate is rounded to 4 significant digits. ",
+        "domain": [
+            0,
+            2.86,
+            5.72,
+            8.58,
+            11.44,
+            14.3
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "incarc_pop_MOE": {
+        "Column": 19,
+        "Description": "2015-2019 Tract population incarcerated in a state or local correctional facility margin of error",
+        "Source(s)": " \nMargin of error at the 90 percent confidence level. \nEstimate is rounded to 4 significant digits.",
+        "domain": [
+            0,
+            31,
+            63,
+            94,
+            126,
+            158
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_incarc_MOE": {
+        "Column": 20,
+        "Description": "2015-2019 Percentage of tract population incarcerated in a state or local correctional facility margin of error",
+        "Source(s)": " \nMargin of error at the 90 percent confidence level. \nEstimate is rounded to 4 significant digits.",
+        "domain": [
+            0,
+            1.16,
+            2.32,
+            3.48,
+            4.64,
+            5.8
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "vet_pop": {
+        "Column": 21,
+        "Description": "2015-2019 Tract veteran population age 18 years and older",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable B21001: Sex by Age by Veteran Status for the Civilian Population 18 Years and Over.  ",
+        "domain": [
+            0,
+            168,
+            336,
+            504,
+            672,
+            841
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_vet_pop": {
+        "Column": 22,
+        "Description": "2015-2019 Percentage of tract population who are veterans aged 18 years or older",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable B21001: Sex by Age by Veteran Status for the Civilian Population 18 Years and Over. ",
+        "domain": [
+            0,
+            3.62,
+            7.24,
+            10.86,
+            14.48,
+            18.1
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "vet_pop_MOE": {
+        "Column": 23,
+        "Description": "2015-2019 Tract veteran population age 18 years and older margin of error",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable B21001: Sex by Age by Veteran Status for the Civilian Population 18 Years and Over. \nMargin of error at the 90 percent confidence level.",
+        "domain": [
+            0,
+            47,
+            94,
+            141,
+            188,
+            236
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_vet_MOE": {
+        "Column": 24,
+        "Description": "2015-2019 Percentage of tract population who are veterans aged 18 years or older margin of error",
+        "Source(s)": "Margin of error at the 90 percent confidence level",
+        "domain": [
+            0,
+            1.1,
+            2.2,
+            3.3,
+            4.4,
+            5.5
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "dis_pop": {
+        "Column": 25,
+        "Description": "2015-2019 Tract population with one or more disabilities",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates.\nEstimate is rounded to 4 significant digits.",
+        "domain": [
+            0,
+            437,
+            875,
+            1312,
+            1750,
+            2188
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_dis_pop": {
+        "Column": 26,
+        "Description": "2015-2019 Percentage of tract population with one or more disabilities ",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates",
+        "domain": [
+            0,
+            8.4,
+            16.8,
+            25.2,
+            33.6,
+            42.0
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "dis_pop_MOE": {
+        "Column": 27,
+        "Description": "2015-2019 Tract population with one or more disabilities margin of error",
+        "Source(s)": "Margin of error at the 90 percent confidence level. \nEstimate is rounded to 4 significant digits.  ",
+        "domain": [
+            0,
+            118,
+            237,
+            355,
+            474,
+            593
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_dis_MOE": {
+        "Column": 28,
+        "Description": "2015-2019 Percentage of tract population with one or more disabilities margin of error",
+        "Source(s)": "Margin of error at the 90 percent confidence level",
+        "domain": [
+            0,
+            2.1,
+            4.2,
+            6.3,
+            8.4,
+            10.5
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "lang_barrier_pop": {
+        "Column": 29,
+        "Description": "2015-2019 Tract population with a language barrier (Speaks English less than \"very well\" or has low levels of literacy)",
+        "Source(s)": "Derived from 2015-2019 ACS 5-Year file (for speaks English less than \"very well\") and 2017 Program for the International Assessment of Adult Competencies (PIAAC) Household file and 2012/2014/2017 PIAAC State and County Small Area Estimates of Adult Skills on Literacy and Numeracy (for low literacy) from the National Center for Education Statistics. \nEstimate is rounded to 4 significant digits.",
+        "domain": [
+            0,
+            277,
+            554,
+            832,
+            1109,
+            1387
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_lang_barrier_pop": {
+        "Column": 30,
+        "Description": "2015-2019 Percentage of tract population with a language barrier (Speaks English less than \"very well\" or has low levels of literacy)",
+        "Source(s)": "Derived from 2015-2019 ACS 5-Year file (for speaks English less than \"very well\") and 2017 Program for the International Assessment of Adult Competencies (PIAAC) Household file and 2012/2014/2017 PIAAC State and County Small Area Estimates of Adult Skills on Literacy and Numeracy (for low literacy) from the National Center for Education Statistics ",
+        "domain": [
+            0,
+            5.46,
+            10.92,
+            16.38,
+            21.84,
+            27.3
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "lang_barrier_pop_MOE": {
+        "Column": 31,
+        "Description": "2015-2019 Tract population with a language barrier (Speaks English less than \"very well\" or has low levels of literacy) margin of error",
+        "Source(s)": "Margin of error at the 90 percent confidence level.\nMargin of error accounts for sampling error in the ACS but not the uncertainty introduced by the low literacy imputation.\nEstimate is rounded to 4 significant digits. ",
+        "domain": [
+            0,
+            68,
+            137,
+            205,
+            274,
+            343
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_lang_barrier_MOE": {
+        "Column": 32,
+        "Description": "2015-2019 Percentage of tract population with a language barrier (Speaks English less than \"very well\" or has low levels of literacy) margin of error",
+        "Source(s)": "Margin of error at the 90 percent confidence level.\nMargin of error accounts for sampling error in the ACS but not the uncertainty introduced by the low literacy imputation. ",
+        "domain": [
+            0,
+            1.6,
+            3.2,
+            4.8,
+            6.4,
+            8.0
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "lang_pop": {
+        "Column": 33,
+        "Description": "2015-2019 Tract population 5 years and older who speak a language other than English at home and speak English less than \"very well\"",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable S1601: Language Spoken at Home",
+        "domain": [
+            0,
+            170,
+            341,
+            512,
+            683,
+            854
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_lang_pop": {
+        "Column": 34,
+        "Description": "2015-2019 Percentage of tract population 5 years and older who speak a language other than English at home and speak English less than \"very well\" ",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable S1601: Language Spoken at Home",
+        "domain": [
+            0,
+            4.52,
+            9.04,
+            13.56,
+            18.08,
+            22.6
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "lang_pop_MOE": {
+        "Column": 35,
+        "Description": "2015-2019 Tract population 5 years and older who speak a language other than English at home and speak English less than \"very well\" margin of error",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable S1601: Language Spoken at Home. \nMargin of error at the 90 percent confidence level. ",
+        "domain": [
+            0,
+            68,
+            137,
+            205,
+            274,
+            343
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_lang_MOE": {
+        "Column": 36,
+        "Description": "2015-2019 Percentage of tract population 5 years and older who speak a language other than English at home and speak English less than \"very well\" state margin of error",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable S1601: Language Spoken at Home.\nMargin of error at the 90 percent confidence level. ",
+        "domain": [
+            0,
+            1.56,
+            3.12,
+            4.68,
+            6.24,
+            7.8
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "minority_pop": {
+        "Column": 37,
+        "Description": "2015-2019 Tract population who identify as a race other than White alone or as Hispanic or Latino of any race",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates,\nTable DP05: ACS Demographic and Housing Estimates",
+        "domain": [
+            0,
+            366,
+            732,
+            1098,
+            1464,
+            1831
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_minority_pop": {
+        "Column": 38,
+        "Description": "2015-2019 Percentage of tract population who identify as a race other than White alone or as Hispanic or Latino of any race ",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates,\nTable DP05: ACS Demographic and Housing Estimates",
+        "domain": [
+            0,
+            17.26,
+            34.52,
+            51.78,
+            69.04,
+            86.3
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "minority_pop_MOE": {
+        "Column": 39,
+        "Description": "2015-2019 Tract population who identify as a race other than White alone or as Hispanic or Latino of any race margin of error",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates,\nTable DP05: ACS Demographic and Housing Estimates.\nMargin of error at the 90 percent confidence level. ",
+        "domain": [
+            0,
+            120,
+            240,
+            361,
+            481,
+            602
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_minority_MOE": {
+        "Column": 40,
+        "Description": "2015-2019 Percentage of tract population who identify as a race other than White alone or as Hispanic or Latino of any race margin of error",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates,\nTable DP05: ACS Demographic and Housing Estimates.\nMargin of error at the 90 percent confidence level. ",
+        "domain": [
+            0,
+            2.06,
+            4.12,
+            6.18,
+            8.24,
+            10.3
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "rural_pop": {
+        "Column": 41,
+        "Description": "2015-2019 Tract population living in rural areas",
+        "Source(s)": "Digital Equity Act definition of \"rural areas\" applied to 2015-2019 5-Year American Community Survey (ACS) Estimates.\nEstimate is rounded to 4 significant digits.",
+        "domain": [
+            0,
+            1648,
+            3297,
+            4945,
+            6594,
+            8243
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_rural_pop": {
+        "Column": 42,
+        "Description": "2015-2019 Percentage of tract population living in rural areas ",
+        "Source(s)": "Digital Equity Act definition of \"rural areas\" applied to 2015-2019 5-Year American Community Survey (ACS) Estimates",
+        "domain": [
+            0,
+            20.0,
+            40.0,
+            60.0,
+            80.0,
+            100.0
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "rural_pop_MOE": {
+        "Column": 43,
+        "Description": "2015-2019 Tract population living in rural areas margin of error",
+        "Source(s)": " \nMargin of error at the 90 percent confidence level. \nEstimate is rounded to 4 significant digits.",
+        "domain": [
+            0,
+            108,
+            216,
+            324,
+            432,
+            540
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_rural_MOE": {
+        "Column": 44,
+        "Description": "2015-2019 Percentage of tract population living in rural areas margin of error",
+        "Source(s)": " \nMargin of error at the 90 percent confidence level. ",
+        "domain": [
+            0,
+            1.82,
+            3.64,
+            5.46,
+            7.28,
+            9.1
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "no_bb_or_computer_pop": {
+        "Column": 45,
+        "Description": "2015-2019 Tract household population that lack a computing device and/or broadband subscription",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates,\nTable S2802: Types of Internet Subscriptions by Selected Characteristics ",
+        "domain": [
+            0,
+            336,
+            672,
+            1008,
+            1344,
+            1680
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_no_bb_or_computer_pop": {
+        "Column": 46,
+        "Description": "2015-2019 Percentage of tract household population that lack a computing device and/or broadband subscription",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates,\nTable S2802: Types of Internet Subscriptions by Selected Characteristics ",
+        "domain": [
+            0,
+            7.32,
+            14.64,
+            21.96,
+            29.28,
+            36.6
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "no_bb_or_computer_pop_MOE": {
+        "Column": 47,
+        "Description": "2015-2019 Tract household population that lack a computing device and/or broadband subscription margin of error",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates,\nTable S2802: Types of Internet Subscriptions by Selected Characteristics.\nMargin of error at the 90 percent confidence level.  ",
+        "domain": [
+            0,
+            146,
+            292,
+            438,
+            584,
+            730
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_no_bb_or_computer_MOE": {
+        "Column": 48,
+        "Description": "2015-2019 Tract household population that lack a computing device and/or broadband subscription margin of error",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates,\nTable S2802: Types of Internet Subscriptions by Selected Characteristics.\nMargin of error at the 90 percent confidence level.  ",
+        "domain": [
+            0,
+            2.74,
+            5.48,
+            8.22,
+            10.96,
+            13.7
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    }
+}

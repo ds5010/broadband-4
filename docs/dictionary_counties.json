@@ -1,0 +1,1052 @@
+{
+    "geo_id": {
+        "Column": 1,
+        "Description": "Combined state (2-digit) + county (3-digit) FIPS codes + '000000' for tracts",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates",
+        "domain": null,
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "geography_name": {
+        "Column": 2,
+        "Description": "County name",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 ACS 5-Year Simplified Geography Files",
+        "domain": null,
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "rural": {
+        "Column": 3,
+        "Description": "Rural/urban status \n\"Rural\" indicates county is wholly contained in a rural area; \"Not rural\" denotes otherwise.",
+        "Source(s)": "Digital Equity Act definition of \"rural areas\" applied to 2015-2019 5-Year American Community Survey (ACS) Estimates.  ",
+        "domain": null,
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "county_tot_pop": {
+        "Column": 4,
+        "Description": "2019 County resident population",
+        "Source(s)": "U.S. Census Bureau, Population Estimates Program, Vintage 2019 County and Puerto Rico Municipio Population Estimates",
+        "domain": [
+            0,
+            59000,
+            118001,
+            177001,
+            236002,
+            295003
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "tot_cov_pop": {
+        "Column": 5,
+        "Description": "2019 Total covered populations in county (population with 1 or more of the eight characteristics that make up the total covered populations as defined by the Digital Equity Act of 2021)",
+        "Source(s)": "U.S. Census Bureau, 2019 Modeled Total Covered Population Estimates.\nSmall area model of total covered populations derived from 2019 ACS 1-Year file, Vintage 2019 County and Puerto Rico Municipio Population Estimates, 2010 Decennial Census, 2015-2019 ACS 5-Year file, 2017 Program for the International Assessment of Adult Competencies (PIAAC) Household file and 2012/2014/2017 PIAAC State and County Small Area Estimates of Adult Skills on Literacy and Numeracy from the National Education Center for Education Statistics.",
+        "domain": [
+            0,
+            43043,
+            86086,
+            129129,
+            172172,
+            215216
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_tot_cov_pop": {
+        "Column": 6,
+        "Description": "2019 Percentage of county population in total covered populations",
+        "Source(s)": "U.S. Census Bureau, 2019 Modeled Total Covered Population Estimates",
+        "domain": [
+            0,
+            20.0,
+            40.0,
+            60.0,
+            80.0,
+            100.0
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "tot_cov_pop_MOE": {
+        "Column": 7,
+        "Description": "2019 Total covered populations in county (population with 1 or more of the eight characteristics that make up the total covered populations as defined by the Digital Equity Act of 2021) margin of error",
+        "Source(s)": "U.S. Census Bureau, 2019 Modeled Total Covered Population Estimates.\nMargin of error at the 90 percent confidence level.",
+        "domain": [
+            0,
+            2812,
+            5625,
+            8437,
+            11250,
+            14063
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_tot_cov_MOE": {
+        "Column": 8,
+        "Description": "2019 Percentage of county population in total covered populations margin of error",
+        "Source(s)": "U.S. Census Bureau, 2019 Modeled Total Covered Population Estimates.\nMargin of error at the 90 percent confidence level.",
+        "domain": [
+            0,
+            0.96,
+            1.92,
+            2.88,
+            3.84,
+            4.8
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "ipr_pop": {
+        "Column": 9,
+        "Description": "2015-2019 County household population in \"covered households\" (living in households with income-to-poverty ratio no more than 150 percent of federal poverty threshold)",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates.\nEstimate is rounded to 4 significant digits. ",
+        "domain": [
+            0,
+            8166,
+            16332,
+            24498,
+            32664,
+            40830
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_ipr_pop": {
+        "Column": 10,
+        "Description": "2015-2019 Percentage of household population in \"covered households\" in county (living in households with income-to-poverty ratio no more than 150 percent of federal poverty threshold)",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates",
+        "domain": [
+            0,
+            6.52,
+            13.04,
+            19.56,
+            26.08,
+            32.6
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "ipr_pop_MOE": {
+        "Column": 11,
+        "Description": "2015-2019 County household population in \"covered households\" (living in households with income-to-poverty ratio no more than 150 percent of federal poverty threshold) margin of error",
+        "Source(s)": "Margin of error at the 90 percent confidence level.\nEstimate is rounded to 4 significant digits. ",
+        "domain": [
+            0,
+            391,
+            783,
+            1175,
+            1567,
+            1959
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_ipr_MOE": {
+        "Column": 12,
+        "Description": "2015-2019 Percentage of household population in \"covered households\" in county (living in households with income-to-poverty ratio no more than 150 percent of federal poverty threshold) margin of error",
+        "Source(s)": "Margin of error at the 90 percent confidence level",
+        "domain": [
+            0,
+            0.52,
+            1.04,
+            1.56,
+            2.08,
+            2.6
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "aging_pop": {
+        "Column": 13,
+        "Description": "2015-2019 County population age 60 years and older",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable S0101: Age and Sex ",
+        "domain": [
+            0,
+            14409,
+            28819,
+            43229,
+            57639,
+            72049
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_aging_pop": {
+        "Column": 14,
+        "Description": "2015-2019 Percentage of county population age 60 years and older ",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable S0101: Age and Sex ",
+        "domain": [
+            0,
+            7.34,
+            14.68,
+            22.02,
+            29.36,
+            36.7
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "aging_pop_MOE": {
+        "Column": 15,
+        "Description": "2015-2019 County population age 60 years and older margin of error",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable S0101: Age and Sex.\nMargin of error at the 90 percent confidence level. ",
+        "domain": [
+            0,
+            139,
+            278,
+            417,
+            556,
+            696
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_aging_MOE": {
+        "Column": 16,
+        "Description": "2015-2019 Percentage of county population age 60 years and older margin of error",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable S0101: Age and Sex.\nMargin of error at the 90 percent confidence level. ",
+        "domain": [
+            0,
+            0.18,
+            0.36,
+            0.54,
+            0.72,
+            0.9
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "incarc_pop": {
+        "Column": 17,
+        "Description": "2015-2019 County population incarcerated in a state or local correctional facility",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates.\nEstimate is rounded to 4 significant digits. ",
+        "domain": [
+            0,
+            228,
+            456,
+            684,
+            912,
+            1141
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_incarc_pop": {
+        "Column": 18,
+        "Description": "2015-2019 Percentage of county population incarcerated in a state or local correctional facility",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates.\nEstimate is rounded to 4 significant digits. ",
+        "domain": [
+            0,
+            0.58,
+            1.16,
+            1.74,
+            2.32,
+            2.9
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "incarc_pop_MOE": {
+        "Column": 19,
+        "Description": "2015-2019 County population incarcerated in a state or local correctional facility margin of error",
+        "Source(s)": " \nMargin of error at the 90 percent confidence level. \nEstimate is rounded to 4 significant digits.",
+        "domain": [
+            0,
+            39,
+            79,
+            118,
+            158,
+            198
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_incarc_MOE": {
+        "Column": 20,
+        "Description": "2015-2019 Percentage of county population incarcerated in a state or local correctional facility margin of error",
+        "Source(s)": " \nMargin of error at the 90 percent confidence level. \nEstimate is rounded to 4 significant digits.",
+        "domain": [
+            0,
+            0.08,
+            0.16,
+            0.24,
+            0.32,
+            0.4
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "vet_pop": {
+        "Column": 21,
+        "Description": "2015-2019 County veteran population age 18 years and older",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable B21001: Sex by Age by Veteran Status for the Civilian Population 18 Years and Over.  ",
+        "domain": [
+            0,
+            3390,
+            6780,
+            10170,
+            13560,
+            16950
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_vet_pop": {
+        "Column": 22,
+        "Description": "2015-2019 Percentage of county population who are veterans aged 18 years or older",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable B21001: Sex by Age by Veteran Status for the Civilian Population 18 Years and Over. \nCounty resident population.  ",
+        "domain": [
+            0,
+            2.08,
+            4.16,
+            6.24,
+            8.32,
+            10.4
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "vet_pop_MOE": {
+        "Column": 23,
+        "Description": "2015-2019 County veteran population age 18 years and older margin of error",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable B21001: Sex by Age by Veteran Status for the Civilian Population 18 Years and Over. \nMargin of error at the 90 percent confidence level.",
+        "domain": [
+            0,
+            156,
+            312,
+            469,
+            625,
+            782
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_vet_MOE": {
+        "Column": 24,
+        "Description": "2015-2019 Percentage of county population who are veterans aged 18 years or older margin of error",
+        "Source(s)": "Margin of error at the 90 percent confidence level",
+        "domain": [
+            0,
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "dis_pop": {
+        "Column": 25,
+        "Description": "2015-2019 County population with one or more disabilities",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates.\nEstimate is rounded to 4 significant digits.",
+        "domain": [
+            0,
+            6982,
+            13964,
+            20946,
+            27928,
+            34910
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_dis_pop": {
+        "Column": 26,
+        "Description": "2015-2019 Percentage of county population with one or more disabilities ",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates",
+        "domain": [
+            0,
+            5.38,
+            10.76,
+            16.14,
+            21.52,
+            26.9
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "dis_pop_MOE": {
+        "Column": 27,
+        "Description": "2015-2019 County population with one or more disabilities margin of error",
+        "Source(s)": "Margin of error at the 90 percent confidence level. \nEstimate is rounded to 4 significant digits.  ",
+        "domain": [
+            0,
+            277,
+            554,
+            832,
+            1109,
+            1387
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_dis_MOE": {
+        "Column": 28,
+        "Description": "2015-2019 Percentage of county population with one or more disabilities margin of error",
+        "Source(s)": "Margin of error at the 90 percent confidence level",
+        "domain": [
+            0,
+            0.32,
+            0.64,
+            0.96,
+            1.28,
+            1.6
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "lang_barrier_pop": {
+        "Column": 29,
+        "Description": "2015-2019 County population with a language barrier (Speaks English less than \"very well\" or has low levels of literacy)",
+        "Source(s)": "Derived from 2015-2019 ACS 5-Year file (for speaks English less than \"very well\") and 2017 Program for the International Assessment of Adult Competencies (PIAAC) Household file and 2012/2014/2017 PIAAC State and County Small Area Estimates of Adult Skills on Literacy and Numeracy (for low literacy) from the National Center for Education Statistics. \nEstimate is rounded to 4 significant digits.",
+        "domain": [
+            0,
+            5492,
+            10984,
+            16476,
+            21968,
+            27460
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_lang_barrier_pop": {
+        "Column": 30,
+        "Description": "2015-2019 Percentage of county population with a language barrier (Speaks English less than \"very well\" or has low levels of literacy)",
+        "Source(s)": "Derived from 2015-2019 ACS 5-Year file (for speaks English less than \"very well\") and 2017 Program for the International Assessment of Adult Competencies (PIAAC) Household file and 2012/2014/2017 PIAAC State and County Small Area Estimates of Adult Skills on Literacy and Numeracy (for low literacy) from the National Center for Education Statistics",
+        "domain": [
+            0,
+            3.26,
+            6.52,
+            9.78,
+            13.04,
+            16.3
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "lang_barrier_pop_MOE": {
+        "Column": 31,
+        "Description": "2015-2019 County population with a language barrier (Speaks English less than \"very well\" or has low levels of literacy) margin of error",
+        "Source(s)": "Margin of error at the 90 percent confidence level.\nMargin of error accounts for sampling error in the ACS but not the uncertainty introduced by the low literacy imputation.\nEstimate is rounded to 4 significant digits. ",
+        "domain": [
+            0,
+            225,
+            451,
+            676,
+            902,
+            1128
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_lang_barrier_MOE": {
+        "Column": 32,
+        "Description": "2015-2019 Percentage of county population with a language barrier (Speaks English less than \"very well\" or has low levels of literacy) margin of error",
+        "Source(s)": "Margin of error at the 90 percent confidence level.\nMargin of error accounts for sampling error in the ACS but not the uncertainty introduced by the low literacy imputation. ",
+        "domain": [
+            0,
+            0.26,
+            0.52,
+            0.78,
+            1.04,
+            1.3
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "lang_pop": {
+        "Column": 33,
+        "Description": "2015-2019 County population 5 years and older who speak a language other than English at home and speak English less than \"very well\"",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable S1601: Language Spoken at Home",
+        "domain": [
+            0,
+            1367,
+            2734,
+            4102,
+            5469,
+            6837
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_lang_pop": {
+        "Column": 34,
+        "Description": "2015-2019 Percentage of county population 5 years and older who speak a language other than English at home and speak English less than \"very well\" ",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable S1601: Language Spoken at Home",
+        "domain": [
+            0,
+            0.64,
+            1.28,
+            1.92,
+            2.56,
+            3.2
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "lang_pop_MOE": {
+        "Column": 35,
+        "Description": "2015-2019 county population 5 years and older who speak a language other than English at home and speak English less than \"very well\" margin of error",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable S1601: Language Spoken at Home. \nMargin of error at the 90 percent confidence level. ",
+        "domain": [
+            0,
+            117,
+            234,
+            351,
+            468,
+            586
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_lang_MOE": {
+        "Column": 36,
+        "Description": "2015-2019 Percentage of county population 5 years and older who speak a language other than English at home and speak English less than \"very well\" state margin of error",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates, \nTable S1601: Language Spoken at Home.\nMargin of error at the 90 percent confidence level. ",
+        "domain": [
+            0,
+            0.12,
+            0.24,
+            0.36,
+            0.48,
+            0.6
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_low_literacy_pop_nces": {
+        "Column": 37,
+        "Description": "Percentage of county population with low levels of literacy (Level 1 or Below in literacy assessment rubric)",
+        "Source(s)": "National Center for Education Statistics, 2012/2014/2017 Program for the International Assessment of Adult Competencies State Small Area Estimates of Adult Skills on Literacy and Numeracy",
+        "domain": [
+            0,
+            3.7,
+            7.4,
+            11.1,
+            14.8,
+            18.5
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_low_literacy_nces_MOE": {
+        "Column": 38,
+        "Description": "Percentage of county population with low levels of literacy (Level 1 or Below in literacy assessment rubric) margin of error",
+        "Source(s)": "National Center for Education Statistics, 2012/2014/2017 Program for the International Assessment of Adult Competencies State Small Area Estimates of Adult Skills on Literacy and Numeracy.\nMargin of error at the 90 percent confidence level. ",
+        "domain": [
+            0,
+            0.76,
+            1.52,
+            2.28,
+            3.04,
+            3.8
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "minority_pop": {
+        "Column": 39,
+        "Description": "2015-2019 County population who identify as a race other than White alone or as Hispanic or Latino of any race",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates,\nTable DP05: ACS Demographic and Housing Estimates",
+        "domain": [
+            0,
+            5677,
+            11354,
+            17031,
+            22708,
+            28386
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_minority_pop": {
+        "Column": 40,
+        "Description": "2015-2019 Percentage of county population who identify as a race other than White alone or as Hispanic or Latino of any race ",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates,\nTable DP05: ACS Demographic and Housing Estimates",
+        "domain": [
+            0,
+            2.12,
+            4.24,
+            6.36,
+            8.48,
+            10.6
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "minority_pop_MOE": {
+        "Column": 41,
+        "Description": "2015-2019 County population who identify as a race other than White alone or as Hispanic or Latino of any race margin of error",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates,\nTable DP05: ACS Demographic and Housing Estimates.\nMargin of error at the 90 percent confidence level. ",
+        "domain": [
+            0,
+            55,
+            111,
+            166,
+            222,
+            278
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_minority_MOE": {
+        "Column": 42,
+        "Description": "2015-2019 Percentage of county population who identify as a race other than White alone or as Hispanic or Latino of any race margin of error",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates,\nTable DP05: ACS Demographic and Housing Estimates.\nMargin of error at the 90 percent confidence level. ",
+        "domain": [
+            0,
+            0.08,
+            0.16,
+            0.24,
+            0.32,
+            0.4
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "rural_pop": {
+        "Column": 43,
+        "Description": "2015-2019 County population living in rural areas",
+        "Source(s)": "Digital Equity Act definition of \"rural areas\" applied to 2015-2019 5-Year American Community Survey (ACS) Estimates.\nEstimate is rounded to 4 significant digits.",
+        "domain": [
+            0,
+            27540,
+            55080,
+            82620,
+            110160,
+            137700
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_rural_pop": {
+        "Column": 44,
+        "Description": "2015-2019 Percentage of county population living in rural areas ",
+        "Source(s)": "Digital Equity Act definition of \"rural areas\" applied to 2015-2019 5-Year American Community Survey (ACS) Estimates",
+        "domain": [
+            0,
+            20.0,
+            40.0,
+            60.0,
+            80.0,
+            100.0
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "rural_pop_MOE": {
+        "Column": 45,
+        "Description": "2015-2019 County population living in rural areas margin of error",
+        "Source(s)": " \nMargin of error at the 90 percent confidence level. \nEstimate is rounded to 4 significant digits.",
+        "domain": [
+            0,
+            253,
+            506,
+            759,
+            1012,
+            1266
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_rural_MOE": {
+        "Column": 46,
+        "Description": "2015-2019 Percentage of county population living in rural areas margin of error",
+        "Source(s)": " \nMargin of error at the 90 percent confidence level. ",
+        "domain": [
+            0,
+            0.08,
+            0.16,
+            0.24,
+            0.32,
+            0.4
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_no_fixed_bb_pop_fcc": {
+        "Column": 47,
+        "Description": "2015-2019 Percentage of county population living in places where fixed broadband service delivering advertised speeds of at least 25 Mbps download and 3 Mbps upload is not available",
+        "Source(s)": "Federal Communications Commission (FCC), Fourteenth Broadband Deployment Report, released January 19, 2021. Appendix D.",
+        "domain": [
+            0,
+            3.56,
+            7.12,
+            10.68,
+            14.24,
+            17.8
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "no_bb_or_computer_pop": {
+        "Column": 48,
+        "Description": "2015-2019 County household population that lack a computing device and/or broadband subscription",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates,\nTable S2802: Types of Internet Subscriptions by Selected Characteristics ",
+        "domain": [
+            0,
+            5000,
+            10000,
+            15000,
+            20000,
+            25000
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_no_bb_or_computer_pop": {
+        "Column": 49,
+        "Description": "2015-2019 Percentage of county household population that lack a computing device and/or broadband subscription",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates,\nTable S2802: Types of Internet Subscriptions by Selected Characteristics ",
+        "domain": [
+            0,
+            5.12,
+            10.24,
+            15.36,
+            20.48,
+            25.6
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "no_bb_or_computer_pop_MOE": {
+        "Column": 50,
+        "Description": "2015-2019 County household population that lack a computing device and/or broadband subscription margin of error",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates,\nTable S2802: Types of Internet Subscriptions by Selected Characteristics.\nMargin of error at the 90 percent confidence level.  ",
+        "domain": [
+            0,
+            322,
+            644,
+            966,
+            1288,
+            1611
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    },
+    "pct_no_bb_or_computer_MOE": {
+        "Column": 51,
+        "Description": "2015-2019 County household population that lack a computing device and/or broadband subscription margin of error",
+        "Source(s)": "U.S. Census Bureau, 2015-2019 5-Year American Community Survey (ACS) Estimates,\nTable S2802: Types of Internet Subscriptions by Selected Characteristics.\nMargin of error at the 90 percent confidence level.  ",
+        "domain": [
+            0,
+            0.58,
+            1.16,
+            1.74,
+            2.32,
+            2.9
+        ],
+        "range": [
+            "#ffffcc",
+            "#c7e9b4",
+            "#7fcdbb",
+            "#41b6c4",
+            "#2c7fb8",
+            "#253494"
+        ]
+    }
+}
