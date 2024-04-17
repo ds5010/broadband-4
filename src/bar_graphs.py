@@ -26,13 +26,14 @@ def graph_data(data, column_name, title, county_nu=16):  # Defaults to plotting 
 
     # Adding percentages over bars
     for i, value in enumerate(highcounties[column_name]):
-        plt.text(i, value, f'{value:.2f}%', ha='center', va='bottom')
+        plt.text(i, value, f'{value:.1f}', ha='center', va='bottom', fontsize=14, fontstyle='oblique')
 
-    plt.xlabel('Maine County', fontsize=14)
-    plt.ylabel('Percentage (Covered Populations)', fontsize=14)
-    plt.title(f'Maine Counties Ordered by Percent {title} Population', fontsize=16)
-    plt.xticks(range(county_nu), highcounties['geography_name'], rotation=45, ha='right')
-    plt.legend(title="Top 5 Counties")  # Legend will now show only for the top 5 counties
+    plt.xlabel('Maine County', fontsize=19, fontweight='bold')
+    plt.ylabel('Percent Covered Population (%)', fontsize=19, fontweight='bold')
+    plt.title(f'Maine Counties Ordered by Percent {title} Population', fontsize=21, fontweight='bold')
+    plt.xticks(range(county_nu), highcounties['geography_name'], rotation=45, ha='right', fontsize=15)
+    plt.yticks(fontsize=15)
+    plt.legend(title="Top 5 Counties", fontsize=14, title_fontsize=16)  # Legend will now show only for the top 5 counties
     plt.tight_layout()
     plt.savefig(f'figs/bargraphs/{column_name}_bar.png')
     plt.close()
