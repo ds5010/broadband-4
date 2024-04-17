@@ -11,26 +11,32 @@ def clean_file_county(file):
     county.to_csv('data/county_dii.csv') #Saves the CSV to use 
 
 
-def graph_data(data, column_name, title, county_nu=16):   # Can change the # of counties if you only want to see the top 5 
-   '''Input-Data frame- sorts it to the top percentages bar graphs'''
-   data = data.sort_values(by=column_name, ascending=False)
-   highcounties = data[:county_nu].copy() # Added copy to fix the warning.
-   highcounties['geography_name'] = highcounties['geography_name'].str.slice(stop=-14) # Removed the redundant parts in the labels
-   counties = range(len(highcounties['geography_name']))  
-   plt.figure(figsize=(12, 8)) 
-   plt.bar(counties, highcounties[column_name], label=column_name)
-   
-   # Makes labels for bar graphs (Nice Touch Van!!) 
-   for i, value in enumerate(highcounties[column_name]):
-       plt.text(i, value, f'{value:.2f}%', ha='center', va='bottom')
+def graph_data(data, column_name, title, county_nu=16):  # Defaults to plotting the top 16 counties
+    '''Input-Data frame- sorts it to the top percentages and bar graphs them'''
+    data = data.sort_values(by=column_name, ascending=False)
+    highcounties = data[:county_nu].copy()  # Get data for the top 16 counties
+    highcounties['geography_name'] = highcounties['geography_name'].str.slice(stop=-14)  # Cleaning names
 
-   plt.xlabel('Maine County', fontsize=14)
-   plt.ylabel('Percentage (Covered Populations)', fontsize=14)
-   plt.title(f'Maine Counties Ordered by Percent {title} Population', fontsize=16)
-   plt.xticks(counties, highcounties['geography_name'], ha='right', rotation=45)  # ha moves the ticks over! 
-   plt.tight_layout()
-   plt.savefig(f'figs/bargraphs/{column_name}_bar.png') #save it 
-   plt.close() 
+    plt.figure(figsize=(12, 8))
+    for blah in range(len(highcounties)): # Iterating over all 16 counties
+        if blah < 5:  # Only top 5 are for the legend
+            plt.bar(blah, highcounties.iloc[blah][column_name], label=highcounties.iloc[blah]['geography_name'], color='tab:blue')
+        else:
+            plt.bar(blah, highcounties.iloc[blah][column_name], color='tab:blue')
+
+    # Adding percentages over bars
+    for i, value in enumerate(highcounties[column_name]):
+        plt.text(i, value, f'{value:.2f}%', ha='center', va='bottom')
+
+    plt.xlabel('Maine County', fontsize=14)
+    plt.ylabel('Percentage (Covered Populations)', fontsize=14)
+    plt.title(f'Maine Counties Ordered by Percent {title} Population', fontsize=16)
+    plt.xticks(range(county_nu), highcounties['geography_name'], rotation=45, ha='right')
+    plt.legend(title="Top 5 Counties")  # Legend will now show only for the top 5 counties
+    plt.tight_layout()
+    plt.savefig(f'figs/bargraphs/{column_name}_bar.png')
+    plt.close()
+
 
 def main():
     clean_file_county(file)
