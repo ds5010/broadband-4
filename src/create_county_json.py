@@ -3,12 +3,17 @@ import pandas as pd
 import json
 
 def create_county_popup_json(filename='../docs/counties_popup.json'):
-    info_data = pd.read_excel("../data/county_tract_total_covered_populations.xlsx", sheet_name='county_total_covered_population')
+    '''
+    this function reads the county data from the excel file and saves it as a json file called 'counties_popup.json'
+    :param filename: the name of the file to save the json data
+    :return: None
+    '''
+    info_data = pd.read_excel("../data/county_tract_total_covered_populations.xlsx", sheet_name='county_total_covered_population') # Read the county data
     info_data = info_data[info_data['geo_id'].astype(str).str[:2] == '23']
     info_data['geo_id'] = info_data['geo_id'].astype(str)
     print("Saving county popup data to: " + filename)
     dict = {}
-    for info, row in info_data.iterrows():
+    for info, row in info_data.iterrows(): 
         geoid = row['geo_id']
         county_name = row['geography_name']
         total_pop = row['county_tot_pop']
@@ -24,7 +29,7 @@ def create_county_popup_json(filename='../docs/counties_popup.json'):
         pct_no_bb_or_computer_pop = row['pct_no_bb_or_computer_pop']
         pct_tot_cov_pop = row['pct_tot_cov_pop']
 
-        dict[geoid] = {
+        dict[geoid] = { # Create a dictionary with the county data for each county in Maine
             "Name": county_name,
             "Total Population": total_pop,
             "Percent Near Poverty": pct_near_poverty,
@@ -48,6 +53,12 @@ def create_county_popup_json(filename='../docs/counties_popup.json'):
         print('An error occurred while saving the county popup data:', str(e))
 
 def create_county_json(filename='../docs/counties.json'):
+    '''
+    this function creates a geojson file with the county data and 
+    saves calling it 'counties.json' while merging the county data with the popup data
+    :param filename: the name of the file to save the geojson data
+    :return: None
+    '''
     geo_data = gpd.read_file("../data/tl_2019_us_county.zip")
     geo_data = geo_data[geo_data['STATEFP'] == '23']  # Filter only Maine counties
     geo_data['GEOID'] = geo_data['GEOID'].astype(str)
@@ -55,6 +66,7 @@ def create_county_json(filename='../docs/counties.json'):
     with open('../docs/counties_popup.json') as f:
         popup_data = json.load(f)
 
+    # Convert the popup data to a DataFrame and merge it with the geo data
     popup_df = pd.DataFrame.from_dict(popup_data, orient='index')
     popup_df.index.name = 'GEOID'
     popup_df = popup_df.reset_index()
