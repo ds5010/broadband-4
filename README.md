@@ -1,6 +1,15 @@
 # Broadband-4
 This repository takes data about Maine populations and plots them based on census tracts and counties.
 
+## Table Of Contents
+* [Instructions for Use](#instructions-for-use)
+* [Step 1: Generating the Data](#step-1-generating-the-data)
+* [Step 2: Reproducing the Map Figures](#step-2-reproducing-the-map-figures)
+    * [Tract Plots](#tract-plots)
+    * [County Plots](#county-plots)
+* [Step 3: Reproducing the County Bar Graphs](#step-3-reproducing-the-county-bar-graphs)
+* [Contributors](#contributors)
+
 ## Instructions for Use
 ### *Step 1: Generating the Data*
 After cloning the repository, the following command will download and clean necessary data, placing them within the required directories
@@ -108,7 +117,7 @@ make plots
 </p><br>
 
 ### *Step 3: Reproducing the County Bar Graphs*
-The following command will plot bar graphs that compare all 16 of Maine's counties based on numerous factors. These will then be saved in the `figs/bargraphs` directory. The comparison factors include *Percent Low Income/Poverty Population, Percent Ages 60+ Population, Percent Incarcerated Population, Percent Disability Population, Percent Veterans Population, Percent Language Barrier Population, Percent Minority Population, and Percent Rural Population*.
+The following command will plot the bar graphs that compare all 16 of Maine's counties based on numerous factors. These will then be saved in the `figs/bargraphs` directory. The comparison factors include *Percent Low Income/Poverty Population, Percent Ages 60+ Population, Percent Incarcerated Population, Percent Disability Population, Percent Veterans Population, Percent Language Barrier Population, Percent Minority Population, and Percent Rural Population*. More information on these bargraphs can be found in [bargraph_story.md](https://github.com/ds5010/broadband-4/blob/main/bargraph_story.md).
 ```
 make bars
 ```
@@ -136,3 +145,11 @@ make bars
 <p align="center">
     <img src="figs/bargraphs/pct_rural_pop_bar.png" width="650">
 </p><br>
+
+## Contributors
+*The Roux Institute at Northeastern University, DS5010 Spring 2024 Class:*<br>
+[Philip Bogden](https://github.com/pbogden) | [Rahil Jhaveri](https://github.com/rahiljhaveri) | [Evangeline Kim](https://github.com/charVANder) | [Logan Willans](https://github.com/lwillans4) |
+[Liam O'Connor](https://github.com/LRDOC) | [Erin Pryor](https://github.com/ErinP123) | [Zachary Merriam](https://github.com/zmerriam) |
+[Ben Darby](https://github.com/darbyatNE) | [Lily Song](https://github.com/Lilyssong) | [Jacob Gordon](https://github.com/gordonjaco) |
+
+Special thanks to the [broadband-3](https://ds5010.github.io/broadband-3/) group upon whose work this project was built upon.
