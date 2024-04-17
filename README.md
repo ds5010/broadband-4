@@ -113,26 +113,26 @@ The following command will plot bar graphs that compare all 16 of Maine's counti
 make bars
 ```
 <p align="center">
-    <img src="figs/bargraphs/pct_ipr_pop_bar.png" width="550">
+    <img src="figs/bargraphs/pct_ipr_pop_bar.png" width="650">
 </p><br>
 <p align="center">
-    <img src="figs/bargraphs/pct_aging_pop_bar.png" width="550">
+    <img src="figs/bargraphs/pct_aging_pop_bar.png" width="650">
 </p><br>
 <p align="center">
-    <img src="figs/bargraphs/pct_incarc_pop_bar.png" width="550">
+    <img src="figs/bargraphs/pct_incarc_pop_bar.png" width="650">
 </p><br>
 <p align="center">
-    <img src="figs/bargraphs/pct_dis_pop_bar.png" width="550">
+    <img src="figs/bargraphs/pct_dis_pop_bar.png" width="650">
 </p><br>
 <p align="center">
-    <img src="figs/bargraphs/pct_vet_pop_bar.png" width="550">
+    <img src="figs/bargraphs/pct_vet_pop_bar.png" width="650">
 </p><br>
 <p align="center">
-    <img src="figs/bargraphs/pct_lang_barrier_pop_bar.png" width="550">
+    <img src="figs/bargraphs/pct_lang_barrier_pop_bar.png" width="650">
 </p><br>
 <p align="center">
-    <img src="figs/bargraphs/pct_minority_pop_bar.png" width="550">
+    <img src="figs/bargraphs/pct_minority_pop_bar.png" width="650">
 </p><br>
 <p align="center">
-    <img src="figs/bargraphs/pct_rural_pop_bar.png" width="550">
+    <img src="figs/bargraphs/pct_rural_pop_bar.png" width="650">
 </p><br>
