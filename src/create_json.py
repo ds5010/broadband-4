@@ -72,7 +72,7 @@ def create_json(filename='../docs/tracts.json'):
     combined_data['geo_id'] = combined_data['geo_id'].astype(int)
 
     # Calculate population density
-    combined_data['pop_density'] = combined_data['tract_tot_pop'].astype(float) / (combined_data['ALAND'].astype(float) / 1e6)
+    ombined_data['pop_density'] = combined_data['tract_tot_pop'].astype(float) / (combined_data['ALAND'].astype(float) / 1e6)
 
     # Download as geojson in docs directory
     combined_data.to_file(filename, driver='GeoJSON')
