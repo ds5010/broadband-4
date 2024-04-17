@@ -1,3 +1,4 @@
+# Imports
 import geopandas as gpd
 import pandas as pd
 import json
@@ -52,9 +53,9 @@ def json_info_tract(filename='../docs/tract_information.json'):
 
 def create_json(filename='../docs/tracts.json'):
     '''
-    this function creates a geojson file with the tract data and 
+    this function creates a geojson file with the tract data and
     saves calling it 'tracts.json' while merging the tract data with the popup data
-    :param filename: the name of the file to save the geojson data
+    :param filename: tracts.json
     :return: None
     '''
     # Create tract information JSON
@@ -70,9 +71,8 @@ def create_json(filename='../docs/tracts.json'):
     combined_data = geo_data.merge(de_data, left_on='GEOID', right_on='geo_id')
     combined_data['geo_id'] = combined_data['geo_id'].astype(int)
 
-    # Add popup-related properties
-    combined_data['pct_no_bb_or_computer_pop_popup'] = '<b>No Computer or Broadband: ' + combined_data['pct_no_bb_or_computer_pop'].astype(str) + '%</b><div><b>' + combined_data['geography_name'] + '</b></div><div>Total Population: ' + combined_data['tract_tot_pop'].astype(str) + '</div><div>Percent Near Poverty: ' + combined_data['pct_ipr_pop'].astype(str) + '</div><div>Percent Population over 60: ' + combined_data['pct_aging_pop'].astype(str) + '</div><div>Percent Veterans: ' + combined_data['pct_vet_pop'].astype(str) + '%</div><div>Percent with a Disability: ' + combined_data['pct_dis_pop'].astype(str) + '</div><div>Percent Language Barrier: ' + combined_data['pct_lang_barrier_pop'].astype(str) + '</div><div>Percent Minorities: ' + combined_data['pct_minority_pop'].astype(str) + '</div><div>Percent Rural Population: ' + combined_data['pct_rural_pop'].astype(str) + '</div><div>Percent No Device or Broadband: ' + combined_data['pct_no_bb_or_computer_pop'].astype(str) + '</div>'
-    combined_data['pct_tot_cov_pop_popup'] = '<b>Covered Population: ' + combined_data['pct_tot_cov_pop'].astype(str) + '%</b><div><b>' + combined_data['geography_name'] + '</b></div><div>Total Population: ' + combined_data['tract_tot_pop'].astype(str) + '</div><div>Percent Near Poverty: ' + combined_data['pct_ipr_pop'].astype(str) + '</div><div>Percent Population over 60: ' + combined_data['pct_aging_pop'].astype(str) + '</div><div>Percent Veterans: ' + combined_data['pct_vet_pop'].astype(str) + '%</div><div>Percent with a Disability: ' + combined_data['pct_dis_pop'].astype(str) + '</div><div>Percent Language Barrier: ' + combined_data['pct_lang_barrier_pop'].astype(str) + '</div><div>Percent Minorities: ' + combined_data['pct_minority_pop'].astype(str) + '</div><div>Percent Rural Population: ' + combined_data['pct_rural_pop'].astype(str) + '</div><div>Percent No Device or Broadband: ' + combined_data['pct_no_bb_or_computer_pop'].astype(str) + '</div>'
+    # Calculate population density
+    combined_data['pop_density'] = combined_data['tract_tot_pop'].astype(float) / (combined_data['ALAND'].astype(float) / 1e6)
 
     # Download as geojson in docs directory
     combined_data.to_file(filename, driver='GeoJSON')
