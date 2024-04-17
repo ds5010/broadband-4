@@ -3,8 +3,6 @@ import geopandas as gpd
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import pandas as pd
-import numpy as np
-import matplotlib.colors as colors
 import assign_colors
 
 # List of lists of plot column names, titles and fig filenames, 2 pairs of column name / title and one filename.
