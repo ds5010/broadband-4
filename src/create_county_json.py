@@ -2,13 +2,13 @@ import geopandas as gpd
 import pandas as pd
 import json
 
-def create_county_popup_json(filename='../docs/counties_popup.json'):
+def create_county_popup_json(filename='docs/counties_popup.json'):
     '''
     this function reads the county data from the excel file and saves it as a json file called 'counties_popup.json'
     :param filename: the name of the file to save the json data
     :return: None
     '''
-    info_data = pd.read_excel("../data/county_tract_total_covered_populations.xlsx", sheet_name='county_total_covered_population') # Read the county data
+    info_data = pd.read_excel("data/county_tract_total_covered_populations.xlsx", sheet_name='county_total_covered_population') # Read the county data
     info_data = info_data[info_data['geo_id'].astype(str).str[:2] == '23']
     info_data['geo_id'] = info_data['geo_id'].astype(str)
     print("Saving county popup data to: " + filename)
@@ -52,37 +52,35 @@ def create_county_popup_json(filename='../docs/counties_popup.json'):
     except Exception as e:
         print('An error occurred while saving the county popup data:', str(e))
 
-def create_county_json(filename='../docs/counties.json'):
+def create_county_json(filename='docs/counties.json'):
     '''
     this function creates a geojson file with the county data and 
-    saves calling it 'counties.json' while merging the county data with the popup data
+    saves calling it 'counties.json'
     :param filename: the name of the file to save the geojson data
     :return: None
     '''
-    geo_data = gpd.read_file("../data/tl_2019_us_county.zip")
-    geo_data = geo_data[geo_data['STATEFP'] == '23']  # Filter only Maine counties
-    geo_data['GEOID'] = geo_data['GEOID'].astype(str)
+    # Create county information JSON
+    create_county_popup_json()
 
-    with open('../docs/counties_popup.json') as f:
-        popup_data = json.load(f)
+    # Create Dataframes
+    geo_data = gpd.read_file("data/tl_2019_us_county.zip").query('ALAND > 0')
+    de_data = pd.read_excel("data/county_tract_total_covered_populations.xlsx", sheet_name='county_total_covered_population')
+    
+    # Clean and Merge
+    de_data = de_data[de_data['geo_id'].astype(str).str[:2] == '23'] # Extracting only maine data
+    de_data['GEOID'] = de_data['geo_id'].astype(str)
+    geo_data['GEOID'] = geo_data['GEOID'].str[:5]
+    de_data['GEOID'] = de_data['GEOID'].str[:5]
+    combined_data = geo_data.merge(de_data, on='GEOID')
 
-    # Convert the popup data to a DataFrame and merge it with the geo data
-    popup_df = pd.DataFrame.from_dict(popup_data, orient='index')
-    popup_df.index.name = 'GEOID'
-    popup_df = popup_df.reset_index()
+    combined_data['pct_no_bb_or_computer_pop_popup'] = '<b>No Computer or Broadband: ' + combined_data['pct_no_bb_or_computer_pop'].astype(str) + '%</b><div><b>' + combined_data['geography_name'] + '</b></div><div>Total Population: ' + combined_data['county_tot_pop'].astype(str) + '</div><div>Percent Near Poverty: ' + combined_data['pct_ipr_pop'].astype(str) + '</div><div>Percent Population over 60: ' + combined_data['pct_aging_pop'].astype(str) + '</div><div>Percent Veterans: ' + combined_data['pct_vet_pop'].astype(str) + '%</div><div>Percent with a Disability: ' + combined_data['pct_dis_pop'].astype(str) + '</div><div>Percent Language Barrier: ' + combined_data['pct_lang_barrier_pop'].astype(str) + '</div><div>Percent Minorities: ' + combined_data['pct_minority_pop'].astype(str) + '</div><div>Percent Rural Population: ' + combined_data['pct_rural_pop'].astype(str) + '</div><div>Percent No Device or Broadband: ' + combined_data['pct_no_bb_or_computer_pop'].astype(str) + '</div>'
+    combined_data['pct_tot_cov_pop_popup'] = '<b>Covered Population: ' + combined_data['pct_tot_cov_pop'].astype(str) + '%</b><div><b>' + combined_data['geography_name'] + '</b></div><div>Total Population: ' + combined_data['county_tot_pop'].astype(str) + '</div><div>Percent Near Poverty: ' + combined_data['pct_ipr_pop'].astype(str) + '</div><div>Percent Population over 60: ' + combined_data['pct_aging_pop'].astype(str) + '</div><div>Percent Veterans: ' + combined_data['pct_vet_pop'].astype(str) + '%</div><div>Percent with a Disability: ' + combined_data['pct_dis_pop'].astype(str) + '</div><div>Percent Language Barrier: ' + combined_data['pct_lang_barrier_pop'].astype(str) + '</div><div>Percent Minorities: ' + combined_data['pct_minority_pop'].astype(str) + '</div><div>Percent Rural Population: ' + combined_data['pct_rural_pop'].astype(str) + '</div><div>Percent No Device or Broadband: ' + combined_data['pct_no_bb_or_computer_pop'].astype(str) + '</div>'
 
-    combined_data = geo_data.merge(popup_df, on='GEOID', how='left')
-
-    # Add HTML strings for popup data
-    combined_data['pct_no_fixed_bb_pop_fcc_popup'] = '<b>No Fixed Broadband: ' + combined_data['pct_no_fixed_bb_pop_fcc_popup'].astype(str) + '%</b><div><b>' + combined_data['Name'] + '</b></div><div>Total Population: ' + combined_data['Total Population'].astype(str) + '</div><div>Percent Near Poverty: ' + combined_data['Percent Near Poverty'].astype(str) + '</div><div>Percent Population over 60: ' + combined_data['Percent Population over 60'].astype(str) + '</div><div>Percent Veterans: ' + combined_data['Percent Veterans'].astype(str) + '%</div><div>Percent with a Disability: ' + combined_data['Percent with a Disability'].astype(str) + '</div><div>Percent Language Barrier: ' + combined_data['Percent Language Barrier'].astype(str) + '</div><div>Percent Minorities: ' + combined_data['Percent Minorities'].astype(str) + '</div><div>Percent Rural Population: ' + combined_data['Percent Rural Population'].astype(str) + '</div><div>Percent No Device or Broadband: ' + combined_data['Percent No Device or Broadband'].astype(str) + '</div>'
-    combined_data['pct_no_bb_or_computer_pop_popup'] = '<b>No Computer or Broadband: ' + combined_data['pct_no_bb_or_computer_pop_popup'].astype(str) + '%</b><div><b>' + combined_data['Name'] + '</b></div><div>Total Population: ' + combined_data['Total Population'].astype(str) + '</div><div>Percent Near Poverty: ' + combined_data['Percent Near Poverty'].astype(str) + '</div><div>Percent Population over 60: ' + combined_data['Percent Population over 60'].astype(str) + '</div><div>Percent Veterans: ' + combined_data['Percent Veterans'].astype(str) + '%</div><div>Percent with a Disability: ' + combined_data['Percent with a Disability'].astype(str) + '</div><div>Percent Language Barrier: ' + combined_data['Percent Language Barrier'].astype(str) + '</div><div>Percent Minorities: ' + combined_data['Percent Minorities'].astype(str) + '</div><div>Percent Rural Population: ' + combined_data['Percent Rural Population'].astype(str) + '</div><div>Percent No Device or Broadband: ' + combined_data['Percent No Device or Broadband'].astype(str) + '</div>'
-    combined_data['pct_tot_cov_pop_popup'] = '<b>Covered Population: ' + combined_data['pct_tot_cov_pop_popup'].astype(str) + '%</b><div><b>' + combined_data['Name'] + '</b></div><div>Total Population: ' + combined_data['Total Population'].astype(str) + '</div><div>Percent Near Poverty: ' + combined_data['Percent Near Poverty'].astype(str) + '</div><div>Percent Population over 60: ' + combined_data['Percent Population over 60'].astype(str) + '</div><div>Percent Veterans: ' + combined_data['Percent Veterans'].astype(str) + '%</div><div>Percent with a Disability: ' + combined_data['Percent with a Disability'].astype(str) + '</div><div>Percent Language Barrier: ' + combined_data['Percent Language Barrier'].astype(str) + '</div><div>Percent Minorities: ' + combined_data['Percent Minorities'].astype(str) + '</div><div>Percent Rural Population: ' + combined_data['Percent Rural Population'].astype(str) + '</div><div>Percent No Device or Broadband: ' + combined_data['Percent No Device or Broadband'].astype(str) + '</div>'
-
+    # Download as geojson in docs directory
     combined_data.to_file(filename, driver='GeoJSON')
     print(f"County data saved to {filename}")
 
 def main():
-    create_county_popup_json()
     create_county_json()
 
 if __name__ == "__main__":
