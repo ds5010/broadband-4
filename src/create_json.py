@@ -3,6 +3,11 @@ import pandas as pd
 import json
 
 def json_info_tract(filename='../docs/tract_information.json'):
+    '''
+    This function reads the tract data from the excel file and saves it as a json file called 'tract_information.json'
+    :param filename: the name of the file to save the json data
+    :return: None
+    '''
     sheet_name = 'tract_total_covered_populations'
     info_data = pd.read_excel("../data/county_tract_total_covered_populations.xlsx", sheet_name=sheet_name)
     info_data = info_data[info_data['geo_id'].astype(str).str[:2] == '23']
@@ -46,6 +51,11 @@ def json_info_tract(filename='../docs/tract_information.json'):
         print('An error occurred while saving the tract data:', str(e))
 
 def create_json(filename='../docs/tracts.json'):
+    '''
+    this function creates a geojson file with the tract data and saves calling it 'tracts.json'
+    :param filename: the name of the file to save the geojson data
+    :return: None
+    '''
     json_info_tract()
 
     geo_data = gpd.read_file("../data/tl_2019_23_tract.zip").query('ALAND > 0')
