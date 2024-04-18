@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>MapLibre | broadband-4</title>
+<title>About Us | broadband-4</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
 <link rel="preload" as="style" href="./_observablehq/theme-air,near-midnight.css">
@@ -10,65 +10,10 @@
 <link rel="modulepreload" href="./_observablehq/client.js">
 <link rel="modulepreload" href="./_observablehq/runtime.js">
 <link rel="modulepreload" href="./_observablehq/stdlib.js">
-<link rel="modulepreload" href="./_npm/maplibre-gl@4.1.3/_esm.js">
-<link rel="modulepreload" href="./_npm/htl@0.3.1/_esm.js">
 <link rel="icon" href="./_file/observable.1af93621.png" type="image/png" sizes="32x32">
 <script type="module">
 
-import {define} from "./_observablehq/client.js";
-
-define({id: "d0f89c60", inputs: ["display","html"], outputs: ["maplibregl","container","map","popup"], body: async (display,html) => {
-const {default: maplibregl} = await import("./_npm/maplibre-gl@4.1.3/_esm.js");
-display(html`
-<link rel="stylesheet" href="${new URL("./_npm/maplibre-gl@4.1.3/dist/maplibre-gl.css", location).href}">
-<style>
-.maplibregl-popup-content {
-  background-color: #f56991;
-}
-
-.maplibregl-popup-anchor-bottom .maplibregl-popup-tip {
-  border-top-color: #f56991;
-}
-</style
-`);
-
-const container = display(document.createElement("div"));
-container.style = "height: 400px;";
-
-const map = (container.value = new maplibregl.Map({
-    //interactive: false,
-    boxZoom: true, // use shift+drag to create bounding box, "zoom to" follows
-    pitch: 0,
-    bearing: 0,
-    maplibreLogo: true,
-    container,
-    center: [-70.2568, 43.653],
-    zoom: 12,
-    style: "https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json",
-    scrollZoom: true
-  }));
-
-map.addControl(new maplibregl.NavigationControl());
-
-const popup = new maplibregl.Popup({closeButton: false, closeOnClick: false})
-    .setLngLat([-70.24672, 43.66152])
-    .setHTML('<h2>We are here!</h2>')
-    .addTo(map);
-return {maplibregl,container,map,popup};
-}});
-
-define({id: "6ace6ffb", inputs: ["display","html"], body: (display,html) => {
-display(html`
-<style> 
-.maplibregl-popup-anchor-bottom .maplibregl-popup-tip
-  background-color: red;
-}
-.maplibregl-popup-content {
-  background-color: red;
-}
-</style>
-`)
-}});
+import "./_observablehq/client.js";
 
 </script>
 <input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
@@ -79,11 +24,11 @@ display(html`
     <li class="observablehq-link"><a href="./">broadband-4</a></li>
   </ol>
   <ol>
-    <li class="observablehq-link"><a href="./about-us.html">About Us</a></li>
+    <li class="observablehq-link observablehq-link-active"><a href="./about-us.html">About Us</a></li>
     <li class="observablehq-link"><a href="./covered-counties.html">Counties</a></li>
     <li class="observablehq-link"><a href="./covered-tracts.html">Tracts</a></li>
     <li class="observablehq-link"><a href="./digital-equity-yours.html">Digital Equity</a></li>
-    <li class="observablehq-link observablehq-link-active"><a href="./maplibre.html">MapLibre</a></li>
+    <li class="observablehq-link"><a href="./maplibre.html">MapLibre</a></li>
   </ol>
 </nav>
 <script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),t=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?t.checked=r==="true":t.indeterminate=!0;for(const o of document.querySelectorAll("#observablehq-sidebar summary")){const s=o.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${o.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
@@ -93,12 +38,24 @@ display(html`
 </aside>
 <div id="observablehq-center">
 <main id="observablehq-main" class="observablehq">
-<h1 id="maplibre" tabindex="-1"><a class="observablehq-header-anchor" href="#maplibre">MapLibre</a></h1>
-<div id="cell-d0f89c60" class="observablehq observablehq--block"></div>
-<div id="cell-6ace6ffb" class="observablehq observablehq--block observablehq--loading"></div>
+<h1 id="about-us" tabindex="-1"><a class="observablehq-header-anchor" href="#about-us">About Us</a></h1>
+<p>We're a gregarious group of <a href="https://www.khoury.northeastern.edu/information-for-overview/prospective-align-pillar/" target="_blank" rel="noopener noreferrer">Aligners</a>
+(plus a senior economics major at Bates).
+As Aligners, we're pursuing a Masters in Data Science from Northeastern University's Khoury School of Computer Science.
+And we're doing it in Portland, Maine at <a href="https://roux.northeastern.edu/" target="_blank" rel="noopener noreferrer">Northeastern's Roux Institute</a>.
+Like all Aligners, we're starting a new journey, changing direction (and sometimes careers) by getting into tech
+in a big way. It's a challenge and we're having a blast. Why a blast, you ask?
+Because it's <a href="https://www.sunjournal.com/2004/07/18/maine-way-life-be/" target="_blank" rel="noopener noreferrer">Maine: the way life should be!</a></p>
+<p>We're not the first. We're following the lead of <a href="https://ds5010.github.io/broadband-3/" target="_blank" rel="noopener noreferrer">Aligners that came before us</a>.
+And after two semesters of prep, we'll be joining the
+<a href="https://www.khoury.northeastern.edu/programs/align-masters-of-science-in-data-science/" target="_blank" rel="noopener noreferrer">direct entry</a>
+grad students who already had a BS in CS.</p>
+<p>Aligners come from all over the world (even Massachusetts) and we live all over Maine.
+Come visit our home base at <a href="maplibre.html">100 Fore Street</a> on the Portland waterfront.
+You might even decide that you want to join us, which would be cool.</p>
 </main>
 <footer id="observablehq-footer">
-<nav><a rel="prev" href="./digital-equity-yours.html"><span>Digital Equity</span></a></nav>
+<nav><a rel="prev" href="./"><span>broadband-4</span></a><a rel="next" href="./covered-counties.html"><span>Counties</span></a></nav>
 <div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2024-04-18T17:38:33">Apr 18, 2024</a>.</div>
 </footer>
 </div>

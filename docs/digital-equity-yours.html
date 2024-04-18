@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Digital Equity | broadband-4</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="./_observablehq/theme-air,near-midnight.css">
+<link rel="preload" as="style" href="./_observablehq/stdlib/inputs.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="./_observablehq/theme-air,near-midnight.css">
+<link rel="stylesheet" type="text/css" href="./_observablehq/stdlib/inputs.css">
+<link rel="modulepreload" href="./_observablehq/client.js">
+<link rel="modulepreload" href="./_observablehq/runtime.js">
+<link rel="modulepreload" href="./_observablehq/stdlib.js">
+<link rel="modulepreload" href="./_npm/maplibre-gl@4.1.3/_esm.js">
+<link rel="modulepreload" href="./_npm/d3@7.9.0/_esm.js">
+<link rel="modulepreload" href="./_npm/htl@0.3.1/_esm.js">
+<link rel="modulepreload" href="./_observablehq/stdlib/inputs.js">
+<link rel="modulepreload" href="./_npm/@observablehq/plot@0.6.14/_esm.js">
+<link rel="modulepreload" href="./_npm/isoformat@0.2.1/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-array@3.2.4/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-axis@3.0.0/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-brush@3.0.0/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-chord@3.0.1/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-color@3.1.0/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-contour@4.0.2/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-delaunay@6.0.4/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-dispatch@3.0.1/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-drag@3.0.0/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-dsv@3.0.1/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-ease@3.0.1/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-fetch@3.0.1/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-force@3.0.0/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-format@3.1.0/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-geo@3.1.1/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-hierarchy@3.1.2/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-interpolate@3.0.1/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-path@3.1.0/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-polygon@3.0.1/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-quadtree@3.0.1/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-random@3.0.1/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-scale@4.0.2/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-scale-chromatic@3.1.0/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-selection@3.0.0/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-shape@3.2.0/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-time@3.1.0/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-time-format@4.1.0/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-timer@3.0.1/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-transition@3.0.1/_esm.js">
+<link rel="modulepreload" href="./_npm/d3-zoom@3.0.0/_esm.js">
+<link rel="modulepreload" href="./_npm/interval-tree-1d@1.0.4/_esm.js">
+<link rel="modulepreload" href="./_npm/internmap@2.0.3/_esm.js">
+<link rel="modulepreload" href="./_npm/delaunator@5.0.1/_esm.js">
+<link rel="modulepreload" href="./_npm/binary-search-bounds@2.0.5/_esm.js">
+<link rel="modulepreload" href="./_npm/robust-predicates@3.0.2/_esm.js">
+<link rel="icon" href="./_file/observable.1af93621.png" type="image/png" sizes="32x32">
+<script type="module">
+
+import {define} from "./_observablehq/client.js";
+
+define({id: "0b9fcb3e", inputs: ["display","html"], outputs: ["maplibregl"], body: async (display,html) => {
+const {default: maplibregl} = await import("./_npm/maplibre-gl@4.1.3/_esm.js");
+display(html`<link rel="stylesheet" href="${new URL("./_npm/maplibre-gl@4.1.3/dist/maplibre-gl.css", location).href}">`);
+
+return {maplibregl};
+}});
+
+define({id: "8de0a697", inputs: ["Inputs","Generators"], outputs: ["layers","layerInput","layer","toggleInput","toggle"], body: (Inputs,Generators) => {
+// UI for selecting the visible layer
+const layers = {
+  "Covered Population": {field: 'pct_tot_cov_pop'},
+  "No Fixed Broadband": {field: "pct_no_fixed_bb_pop_fcc"},
+  "No Computer or Broadband": {field: "pct_no_bb_or_computer_pop"}
+};
+
+const layerInput = Inputs.radio(Object.keys(layers), { value: "Covered Population" });
+const layer = Generators.input(layerInput);
+
+const toggleInput = Inputs.checkbox(['visible'], {value: ["visible"]});
+const toggle = Generators.input(toggleInput);
+return {layers,layerInput,layer,toggleInput,toggle};
+}});
+
+define({id: "90679218", inputs: ["counties","tracts","display","html","layerInput","toggleInput","Plot","layers","layer"], body: (counties,tracts,display,html,layerInput,toggleInput,Plot,layers,layer) => {
+// Page layout (reactive because of data-dependent legend-related info added to "layers")
+counties
+tracts
+display(
+   html`<div class="grid grid-cols-2 grid-auto-rows">
+     <div class="card grid-colspan-1">
+       <h2>Data Layer</h2>
+       ${layerInput}
+       <h2 style="margin-top: 15px">Layer Visibility</h2>
+       ${toggleInput}
+     </div>
+     <div class="card grid-colspan-1">
+       ${Plot.legend({color: {type: "threshold", domain: layers[layer].domain, range: layers[layer].range, label:layer}})}
+       <h3>${layers[layer].description}</h3>
+     </div>
+   </div>`
+)
+}});
+
+define({id: "2d5e19c0", inputs: ["display","html"], body: (display,html) => {
+// Map will go here -- I believe this creates a race condition (must be inserted into DOM before map)
+display(
+  html`<div class="card">
+         <div id="map" style="height: 600px;"></div>
+      </div>`
+)
+}});
+
+define({id: "f2440dfe", inputs: ["d3"], outputs: ["f","fc","popup_tract_labels","popup_county_labels","popup_labels","popup_html"], body: (d3) => {
+// "popup_html" returns HTML for a popup as a text string
+const f = d3.format(".1f");
+const fc = d3.format(",d");
+const popup_tract_labels = {
+  tract_tot_pop: "<div>Tract population: ",
+  tot_cov_pop: "<div>Tract covered population: "
+};
+const popup_county_labels = {
+  county_tot_pop: "<div>County population: ",
+  tot_cov_pop: "<div>County covered population: "
+};
+// These are the 8 covered population fields
+const popup_labels = {
+  pct_rural_pop: "<div>Rural: ",
+  pct_ipr_pop: "<div>Below poverty threshold: ",
+  pct_aging_pop: "<div>Age 60 or over: ",
+  pct_vet_pop: "<div>Veterans: ",
+  pct_dis_pop: "<div>With a disability: ",
+  pct_lang_barrier_pop: "<div>With a language barrier: ",
+  pct_minority_pop: "<div>Racial or ethnic minority: ",
+  pct_incarc_pop: "<div>Incarcerated: "
+};
+
+function popup_html(header_labels, properties) {
+  const keys = Object.keys(popup_labels);
+  let text = "<div><b>" + properties.geography_name.replace(", Maine", "</b></div>").replace(", ", "<div><b>") + "</b></div>";
+  Object.keys(header_labels).forEach(d => text += header_labels[d] + fc(properties[d]) + "</div>");
+  Object.keys(popup_labels).forEach(d => text += popup_labels[d] + f(properties[d]) + "%</div>")
+  return text;
+}
+return {f,fc,popup_tract_labels,popup_county_labels,popup_labels,popup_html};
+}});
+
+define({id: "954437b9", inputs: ["d3","display","layers"], outputs: ["county_layers","counties","counties_dictionary"], body: async (d3,display,layers) => {
+// County-level data
+const county_layers = ["No Fixed Broadband"];
+const counties = await d3.json("https://ds5010.github.io/broadband-4/counties.json");
+const counties_dictionary = await d3.json("https://ds5010.github.io/broadband-4/dictionary_counties.json");
+display(counties_dictionary)
+display(counties)
+
+// Define the colors to be used on the map
+// In the ds5010 repo, these should be in the GeoJSON -- I shouldn't have to create them
+county_layers.forEach(layer => {
+  const field = layers[layer].field;
+  const domain = counties_dictionary[field].domain;
+  const range = counties_dictionary[field].range;
+  const scale = d3.scaleThreshold().domain(domain).range(range);
+
+  layers[layer].domain = domain;
+  layers[layer].range = range;
+  layers[layer].description = counties_dictionary[field].Description
+
+  counties.features.forEach(d => {
+    d.properties[field + "_color"] = scale(+d.properties[field]);
+  });
+});
+return {county_layers,counties,counties_dictionary};
+}});
+
+define({id: "6d6ad5e4", inputs: ["d3","display","layers"], outputs: ["tract_layers","tracts","tracts_dictionary"], body: async (d3,display,layers) => {
+// Tract-level data
+const tract_layers = ["Covered Population", "No Computer or Broadband"];
+const tracts = await d3.json("https://ds5010.github.io/broadband-4/tracts.json");
+const tracts_dictionary = await d3.json("https://ds5010.github.io/broadband-4/dictionary_tracts.json");
+display(tracts_dictionary)
+display(tracts)
+
+// Define the colors to be used on the map
+// In the ds5010 repo, these should be in the GeoJSON -- I shouldn't have to create them
+tract_layers.forEach(layer => {
+  const field = layers[layer].field;
+  const domain = tracts_dictionary[field].domain;
+  const range = tracts_dictionary[field].range;
+  const scale = d3.scaleLinear().domain(domain).range(range);
+
+  layers[layer].domain = domain;
+  layers[layer].range = range;
+  layers[layer].description = tracts_dictionary[field].Description
+  
+  tracts.features.forEach(d => {
+    d.properties[field + "_color"] = scale(+d.properties[field]);
+  });
+});
+return {tract_layers,tracts,tracts_dictionary};
+}});
+
+define({id: "a33a054f", inputs: ["maplibregl","tracts","counties"], outputs: ["popup_counties","popup_tracts","map","bounds"], body: (maplibregl,tracts,counties) => {
+// Popups
+const popup_counties = new maplibregl.Popup();
+const popup_tracts = new maplibregl.Popup();
+
+// Map
+const map = new maplibregl.Map({
+    // interactive: false,
+    boxZoom: true, // use shift+drag to create bounding box, "zoom to" follows
+    pitch: 0,
+    bearing: 0,
+    maplibreLogo: true,
+    "container": "map",
+//    center: [-70.2568, 43.653], zoom: 10, // Portland
+    center: [-69.4455, 45.2538], zoom: 5.6, // Maine
+    style: "https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json",
+    scrollZoom: true
+});
+
+map.addControl(new maplibregl.NavigationControl());
+
+// Set map limits
+map.setMinZoom(5.6);
+  let bounds = [
+    [-76., 42.1], // [west, south]
+    [-62., 48.2]  // [east, north]
+  ];
+map.setMaxBounds(bounds);
+
+// Add the data after the map loads
+map.on('load', () => {
+  // put "place_town" layer on top of choropleth
+  const firstSymbolId = 'place_town';
+  map.addSource('tracts', {
+        'type': 'geojson',
+        'data': tracts,
+  });
+  map.addSource('counties', {
+        'type': 'geojson',
+        'data': counties,
+  });
+
+  // Add the layers
+  map.addLayer({
+        'id': 'tracts',
+        'type': 'fill',
+        'source': 'tracts',
+        'layout': {},
+        'paint': {
+          'fill-color': ['get', 'pct_tot_cov_pop_color'],
+          'fill-opacity': 0.7
+        },
+  }, firstSymbolId);
+  map.addLayer({
+        'id': 'counties',
+        'type': 'fill',
+        'source': 'counties',
+        'layout': {visibility: 'none'},
+        'paint': {
+          'fill-color': ['get', 'pct_no_fixed_bb_pop_fcc_color'],
+          'fill-opacity': 0.7
+        },
+  }, firstSymbolId);
+  map.addLayer({
+        'id': 'tracts-line',
+        'type': 'line',
+        'source': 'tracts',
+        'layout': {},
+        'paint': {
+          'line-color': '#333',
+          'line-opacity': 0.2,
+      },
+  });
+  map.addLayer({
+        'id': 'counties-line',
+        'type': 'line',
+        'source': 'counties',
+        'layout': {},
+        'paint': {
+          'line-color': '#000',
+          'line-opacity': 0.5,
+      },
+  });
+
+  // Change the cursor to a pointer when the mouse is over the states layer.
+  map.on('mouseenter', 'tracts', () => {
+    map.getCanvas().style.cursor = 'pointer';
+  });
+
+  // Change it back to a pointer when it leaves.
+  map.on('mouseleave', 'tracts', () => {
+    map.getCanvas().style.cursor = '';
+  });
+
+  // Change the cursor to a pointer when the mouse is over the states layer.
+  map.on('mouseenter', 'counties', () => {
+    map.getCanvas().style.cursor = 'pointer';
+  });
+
+  // Change it back to a pointer when it leaves.
+  map.on('mouseleave', 'counties', () => {
+    map.getCanvas().style.cursor = '';
+  });
+
+  // Add popup listeners -- one popup for each layer
+  map.on('click', 'counties', (e) => {
+    const geoid = e.features[0].properties.GEOID;
+    popup_counties
+          .setLngLat(e.lngLat)
+          .setHTML(e.features[0].properties.pct_no_fixed_bb_pop_fcc_popup)
+          .addTo(map);
+  });
+  map.on('click', 'tracts', (e) => {
+    const geoid = e.features[0].properties.GEOID;
+    popup_tracts
+          .setLngLat(e.lngLat)
+          .setHTML(e.features[0].properties.pct_tot_cov_pop_popup)
+          .addTo(map);
+  });
+});
+return {popup_counties,popup_tracts,map,bounds};
+}});
+
+define({id: "7fcd8c1f", inputs: ["map","popup_tracts","popup_counties","layers","layer","toggle"], body: (map,popup_tracts,popup_counties,layers,layer,toggle) => {
+// Interacting with the map 
+if (map.loaded()) {
+    // Close popups when changing layers
+    popup_tracts.remove();
+    popup_counties.remove();
+  
+  // Toggle layers
+  const field = layers[layer].field;
+  if (field == "pct_no_fixed_bb_pop_fcc") {
+    map.setLayoutProperty("tracts",  "visibility", 'none');
+    map.setLayoutProperty("counties", "visibility", toggle[0] == "visible" ? "visible" : "none");
+  } else {
+    map.setPaintProperty("tracts", "fill-color", ["get", field + "_color"])
+    map.setLayoutProperty("tracts",  "visibility", toggle[0] == "visible" ? "visible" : "none");
+    map.setLayoutProperty("counties", "visibility", 'none');
+  }
+}
+}});
+
+</script>
+<input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
+<label id="observablehq-sidebar-backdrop" for="observablehq-sidebar-toggle"></label>
+<nav id="observablehq-sidebar">
+  <ol>
+    <label id="observablehq-sidebar-close" for="observablehq-sidebar-toggle"></label>
+    <li class="observablehq-link"><a href="./">broadband-4</a></li>
+  </ol>
+  <ol>
+    <li class="observablehq-link"><a href="./about-us.html">About Us</a></li>
+    <li class="observablehq-link"><a href="./covered-counties.html">Counties</a></li>
+    <li class="observablehq-link"><a href="./covered-tracts.html">Tracts</a></li>
+    <li class="observablehq-link observablehq-link-active"><a href="./digital-equity-yours.html">Digital Equity</a></li>
+    <li class="observablehq-link"><a href="./maplibre.html">MapLibre</a></li>
+  </ol>
+</nav>
+<script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),t=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?t.checked=r==="true":t.indeterminate=!0;for(const o of document.querySelectorAll("#observablehq-sidebar summary")){const s=o.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${o.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
+<aside id="observablehq-toc" data-selector="h1:not(:first-of-type), h2:first-child, :not(h1) + h2">
+<nav>
+</nav>
+</aside>
+<div id="observablehq-center">
+<main id="observablehq-main" class="observablehq">
+<h1 id="digital-equity" tabindex="-1"><a class="observablehq-header-anchor" href="#digital-equity">Digital Equity</a></h1>
+<div id="cell-0b9fcb3e" class="observablehq observablehq--block"></div>
+<div id="cell-8de0a697" class="observablehq observablehq--block"></div>
+<div id="cell-90679218" class="observablehq observablehq--block"></div>
+<div id="cell-2d5e19c0" class="observablehq observablehq--block observablehq--loading"></div>
+<div id="cell-f2440dfe" class="observablehq observablehq--block"></div>
+<div id="cell-954437b9" class="observablehq observablehq--block"></div>
+<div id="cell-6d6ad5e4" class="observablehq observablehq--block"></div>
+<div id="cell-a33a054f" class="observablehq observablehq--block"></div>
+<div id="cell-7fcd8c1f" class="observablehq observablehq--block"></div>
+</main>
+<footer id="observablehq-footer">
+<nav><a rel="prev" href="./covered-tracts.html"><span>Tracts</span></a><a rel="next" href="./maplibre.html"><span>MapLibre</span></a></nav>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2024-04-18T17:38:33">Apr 18, 2024</a>.</div>
+</footer>
+</div>
