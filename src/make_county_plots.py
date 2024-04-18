@@ -30,7 +30,7 @@ def make_plot(gpd_obj, plot_obj):
         gpd_obj[plot_obj[index]] = pd.to_numeric(gpd_obj[plot_obj[index]], errors='coerce')
         gpd_obj[plot_obj[index]] = gpd_obj[plot_obj[index]].fillna(0)  # Data cleaning
     
-    color_list = assign_colors.colors[0][::-1]
+    color_list = assign_colors.colors[0]
 
     # Calculate the range for each color
     min_val = gpd_obj[plot_obj[0]].min()
@@ -65,10 +65,10 @@ def make_plot(gpd_obj, plot_obj):
     ax[0].set_xlabel('Longitude', fontsize=12)
     ax[0].set_ylabel('Latitude', fontsize=12)
     
-    color_bins_pct_str = [str(round(value)) for value in color_bins_pct]
-    color_bins_pct_str[0] = ''
+    color_bins_pop_str = [str(round(value)) for value in color_bins_pop]
+    color_bins_pop_str[0] = ''
     colorbar = fig.colorbar(ax[0].collections[0], ax=ax[0])  # Assuming a single plot on the axes
-    colorbar.ax.set_yticklabels(color_bins_pct_str)  # Example: Set custom tick labels
+    colorbar.ax.set_yticklabels(color_bins_pop)  # Example: Set custom tick labels
     
     # Right side of fig plot details
     gpd_obj.plot(column=plot_obj[2], cmap=cmap_pct, norm=norm_pct, figsize=(8,8), ax=ax[1])
