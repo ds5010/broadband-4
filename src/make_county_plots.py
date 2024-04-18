@@ -30,7 +30,7 @@ def make_plot(gpd_obj, plot_obj):
         gpd_obj[plot_obj[index]] = pd.to_numeric(gpd_obj[plot_obj[index]], errors='coerce')
         gpd_obj[plot_obj[index]] = gpd_obj[plot_obj[index]].fillna(0)  # Data cleaning
     
-    color_list = assign_colors.colors[0][::-1]
+    color_list = assign_colors.colors[0]
 
     # Calculate the range for each color
     min_val = gpd_obj[plot_obj[0]].min()
@@ -45,12 +45,12 @@ def make_plot(gpd_obj, plot_obj):
     color_bins_pop.append(max_val)  # Include the maximum value
     color_bins_pct = [i * interval2 for i in range(len(color_list)-1)]
     color_bins_pct.append(max_val2)  # Include the maximum value
-
+    
     # Add a negative lower boundary (adjust as needed)
     lower_boundary = -1
     color_bins_pop.insert(0, lower_boundary)
     color_bins_pct.insert(0, lower_boundary)
-    
+
     # Plotting combined data
     cmap_pop = mpl.colors.ListedColormap(color_list)
     norm_pop = mpl.colors.BoundaryNorm(color_bins_pop, cmap_pop.N)
@@ -65,10 +65,11 @@ def make_plot(gpd_obj, plot_obj):
     ax[0].set_xlabel('Longitude', fontsize=12)
     ax[0].set_ylabel('Latitude', fontsize=12)
     
-    color_bins_pct_str = [str(round(value)) for value in color_bins_pct]
-    color_bins_pct_str[0] = ''
+    color_bins_pop_str = [str(round(value)) for value in color_bins_pop]
+    print(color_bins_pop_str)
+    color_bins_pop_str[0] = ''
     colorbar = fig.colorbar(ax[0].collections[0], ax=ax[0])  # Assuming a single plot on the axes
-    colorbar.ax.set_yticklabels(color_bins_pct_str)  # Example: Set custom tick labels
+    colorbar.ax.set_yticklabels(color_bins_pop_str)  # Example: Set custom tick labels
     
     # Right side of fig plot details
     gpd_obj.plot(column=plot_obj[2], cmap=cmap_pct, norm=norm_pct, figsize=(8,8), ax=ax[1])
@@ -77,7 +78,7 @@ def make_plot(gpd_obj, plot_obj):
     ax[1].set_xlabel('Longitude', fontsize=12)
     ax[1].set_ylabel('Latitude', fontsize=12)
 
-    color_bins_pct_str = [str(round(value)) for value in color_bins_pct]
+    color_bins_pct_str = [str(round(value,1)) for value in color_bins_pct]
     color_bins_pct_str[0] = ''
     colorbar = fig.colorbar(ax[1].collections[0], ax=ax[1])  # Assuming a single plot on the axes
     colorbar.ax.set_yticklabels(color_bins_pct_str)  # Example: Set custom tick labels

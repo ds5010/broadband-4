@@ -29,7 +29,7 @@ def make_plot(gpd_obj, plot_obj):
         gpd_obj[plot_obj[index]] = pd.to_numeric(gpd_obj[plot_obj[index]], errors='coerce')
         gpd_obj[plot_obj[index]] = gpd_obj[plot_obj[index]].fillna(0)  # Data cleaning
     
-    color_list = assign_colors.colors[0][::-1]
+    color_list = assign_colors.colors[0]
 
     # Calculate the range for each color
     min_val = gpd_obj[plot_obj[0]].min()
