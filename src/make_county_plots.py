@@ -41,10 +41,10 @@ def make_plot(gpd_obj, plot_obj):
     interval2 = (max_val2 - min_val2) / (len(color_list)-1)
 
     # Define color bins based on the range and color_list
-    color_bins_pop = [i * interval for i in range(len(color_list)-1)]
-    color_bins_pop.append(max_val)  # Include the maximum value
-    color_bins_pct = [i * interval2 for i in range(len(color_list)-1)]
-    color_bins_pct.append(max_val2)  # Include the maximum value
+    color_bins_pop = [i * interval for i in range(len(color_list))]
+    #color_bins_pop.append(max_val)  # Include the maximum value
+    color_bins_pct = [i * interval2 for i in range(len(color_list))]
+    #color_bins_pct.append(max_val2)  # Include the maximum value
     
     # Add a negative lower boundary (adjust as needed)
     lower_boundary = -1
