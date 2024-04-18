@@ -2,8 +2,8 @@ import pandas as pd
 import geopandas as gpd
 import json
 
-colors = [["#d73027", "#fc8d59", "#fee090",
-           "#e0f3f8", "#91bfdb", "#4575b4"]]
+colors = [["#4575b4", "#91bfdb", "#e0f3f8",
+           "#fee090", "#fc8d59", "#d73027"]]
 
 
 def assign_chunks(data_path, start, end):
