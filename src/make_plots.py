@@ -29,22 +29,26 @@ def make_plot(gpd_obj, plot_obj):
         gpd_obj[plot_obj[index]] = pd.to_numeric(gpd_obj[plot_obj[index]], errors='coerce')
         gpd_obj[plot_obj[index]] = gpd_obj[plot_obj[index]].fillna(0)  # Data cleaning
     
-    inner_list = assign_colors.colors[0]
-    color_list = inner_list[:5]
+    color_list = assign_colors.colors[0][::-1]
 
     # Calculate the range for each color
     min_val = gpd_obj[plot_obj[0]].min()
     max_val = gpd_obj[plot_obj[0]].max()
     min_val2 = gpd_obj[plot_obj[2]].min()
     max_val2 = gpd_obj[plot_obj[2]].max()
-    interval = (max_val - min_val) / len(color_list)
-    interval2 = (max_val2 - min_val2) / len(color_list)
+    interval = (max_val - min_val) / (len(color_list)-1)
+    interval2 = (max_val2 - min_val2) / (len(color_list)-1)
 
     # Define color bins based on the range and color_list
-    color_bins_pop = [min_val + i * interval for i in range(len(color_list))]
+    color_bins_pop = [i * interval for i in range(len(color_list)-1)]
     color_bins_pop.append(max_val)  # Include the maximum value
-    color_bins_pct = [min_val2 + i * interval2 for i in range(len(color_list))]
+    color_bins_pct = [i * interval2 for i in range(len(color_list)-1)]
     color_bins_pct.append(max_val2)  # Include the maximum value
+    
+    # Add a negative lower boundary (adjust as needed)
+    lower_boundary = -1
+    color_bins_pop.insert(0, lower_boundary)
+    color_bins_pct.insert(0, lower_boundary)
 
     # Plotting combined data
     cmap_pop = mpl.colors.ListedColormap(color_list)
@@ -54,19 +58,29 @@ def make_plot(gpd_obj, plot_obj):
     fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(12, 6))
 
     # Left side of fig plot details
-    gpd_obj.plot(column=plot_obj[0], cmap=cmap_pop, norm=norm_pop, legend=True, figsize=(8,8), ax=ax[0])
+    gpd_obj.plot(column=plot_obj[0], cmap=cmap_pop, norm=norm_pop, figsize=(8,8), ax=ax[0])
     gpd_obj.boundary.plot(ax=ax[0], linewidth=0.3, edgecolor='#333')
     ax[0].set_title(plot_obj[1], fontsize=16)
     ax[0].set_xlabel('Longitude', fontsize=12)
     ax[0].set_ylabel('Latitude', fontsize=12)
     
+    color_bins_pop_str = [str(round(value)) for value in color_bins_pop]
+    color_bins_pop_str[0] = ''
+    colorbar = fig.colorbar(ax[0].collections[0], ax=ax[0])  # Assuming a single plot on the axes
+    colorbar.ax.set_yticklabels(color_bins_pop_str)  # Example: Set custom tick labels
+    
     # Right side of fig plot details
-    gpd_obj.plot(column=plot_obj[2], cmap=cmap_pct, norm=norm_pct, legend=True, figsize=(8,8), ax=ax[1])
+    gpd_obj.plot(column=plot_obj[2], cmap=cmap_pct, norm=norm_pct, figsize=(8,8), ax=ax[1])
     gpd_obj.boundary.plot(ax=ax[1], linewidth=0.3, edgecolor='#333')
     ax[1].set_title(plot_obj[3], fontsize=16)
     ax[1].set_xlabel('Longitude', fontsize=12)
     ax[1].set_ylabel('Latitude', fontsize=12)
 
+    color_bins_pct_str = [str(round(value)) for value in color_bins_pct]
+    color_bins_pct_str[0] = ''
+    colorbar = fig.colorbar(ax[1].collections[0], ax=ax[1])  # Assuming a single plot on the axes
+    colorbar.ax.set_yticklabels(color_bins_pct_str)  # Example: Set custom tick labels
+    
     # Formatting
     plt.tight_layout()
         
