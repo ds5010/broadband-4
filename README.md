@@ -8,6 +8,7 @@ This repository takes data about Maine populations and plots them based on censu
     * [Tract Plots](#tract-plots)
     * [County Plots](#county-plots)
 * [Step 3: Reproducing the County Bar Graphs](#step-3-reproducing-the-county-bar-graphs)
+    * [Bar graph story](https://github.com/ds5010/broadband-4/blob/main/bargraph_story.md)
 * [Contributors](#contributors)
 
 ## Instructions for Use
