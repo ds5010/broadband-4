@@ -2,8 +2,8 @@ import pandas as pd
 import geopandas as gpd
 import json
 
-colors = [["#ffffcc", "#c7e9b4", "#7fcdbb",
-           "#41b6c4", "#2c7fb8", "#253494"]]
+colors = [["#d73027", "#fc8d59", "#fee090",
+           "#e0f3f8", "#91bfdb", "#4575b4"]]
 
 
 def assign_chunks(data_path, start, end):
@@ -36,32 +36,34 @@ def assign_chunks(data_path, start, end):
         chunk_list = [round(item, 2) for item in chunk_list]
         all_chunks.append(chunk_list)
 
+
+
     # Returns chunks/buckets for all columns
     return all_chunks
 
 
 def main():
 
-    chunk_list = assign_chunks("../docs/data.json", 15, -1)
-    dictionary_df = pd.read_json("../docs/dictionary.json").transpose()
+    chunk_list = assign_chunks("docs/tracts.json", 15, -4)
+    dictionary_df = pd.read_json("docs/dictionary.json").transpose()
     dictionary_df["domain"] = chunk_list
     dictionary_df["range"] = 48 * colors
 
     # Maintains original format
     dictionary = dictionary_df.transpose().to_dict()
 
-    with open('../docs/dictionary_tracts.json', 'w') as file:
+    with open('docs/dictionary_tracts.json', 'w') as file:
         json.dump(dictionary, file, indent=4)
 
-    chunk_list_2 = assign_chunks("../docs/data_county.json", 16, -2)
-    dictionary_df_2 = pd.read_json("../docs/dictionary_county.json").transpose()
+    chunk_list_2 = assign_chunks("docs/counties.json", 20, -4)
+    dictionary_df_2 = pd.read_json("docs/dictionary_county.json").transpose()
     dictionary_df_2["domain"] = chunk_list_2
     dictionary_df_2["range"] = 51 * colors
 
     # Maintains original format
     dictionary_2 = dictionary_df_2.transpose().to_dict()
 
-    with open('../docs/dictionary_counties.json', 'w') as file:
+    with open('docs/dictionary_counties.json', 'w') as file:
         json.dump(dictionary_2, file, indent=4)
 
 
