@@ -76,7 +76,7 @@ def make_plot(gpd_obj, plot_obj):
     fig.savefig(f'{figs_dir}/{plot_filename}.png')
 
 # Read geojson file into a geopandas object
-gpd_obj = gpd.read_file('/home/darbvt/broadband-4/docs/tracts.json')
+gpd_obj = gpd.read_file('docs/tracts.json')
 
 # Iterate through plot lists and call make_plot to create pngs and save each
 for plot_obj in plot_list:
