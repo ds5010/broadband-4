@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>Digital Equity | broadband-4</title>
+<title>Digital-Equity Map | broadband-4</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
 <link rel="preload" as="style" href="./_observablehq/theme-air,near-midnight.css">
@@ -144,13 +144,11 @@ function popup_html(header_labels, properties) {
 return {f,fc,popup_tract_labels,popup_county_labels,popup_labels,popup_html};
 }});
 
-define({id: "954437b9", inputs: ["d3","display","layers"], outputs: ["county_layers","counties","counties_dictionary"], body: async (d3,display,layers) => {
+define({id: "9b8150eb", inputs: ["d3","layers"], outputs: ["county_layers","counties","counties_dictionary"], body: async (d3,layers) => {
 // County-level data
 const county_layers = ["No Fixed Broadband"];
 const counties = await d3.json("https://ds5010.github.io/broadband-4/counties.json");
 const counties_dictionary = await d3.json("https://ds5010.github.io/broadband-4/dictionary_counties.json");
-display(counties_dictionary)
-display(counties)
 
 // Define the colors to be used on the map
 // In the ds5010 repo, these should be in the GeoJSON -- I shouldn't have to create them
@@ -171,13 +169,11 @@ county_layers.forEach(layer => {
 return {county_layers,counties,counties_dictionary};
 }});
 
-define({id: "6d6ad5e4", inputs: ["d3","display","layers"], outputs: ["tract_layers","tracts","tracts_dictionary"], body: async (d3,display,layers) => {
+define({id: "677d69aa", inputs: ["d3","layers"], outputs: ["tract_layers","tracts","tracts_dictionary"], body: async (d3,layers) => {
 // Tract-level data
 const tract_layers = ["Covered Population", "No Computer or Broadband"];
 const tracts = await d3.json("https://ds5010.github.io/broadband-4/tracts.json");
 const tracts_dictionary = await d3.json("https://ds5010.github.io/broadband-4/dictionary_tracts.json");
-display(tracts_dictionary)
-display(tracts)
 
 // Define the colors to be used on the map
 // In the ds5010 repo, these should be in the GeoJSON -- I shouldn't have to create them
@@ -351,10 +347,9 @@ if (map.loaded()) {
   </ol>
   <ol>
     <li class="observablehq-link"><a href="./about-us">About Us</a></li>
-    <li class="observablehq-link"><a href="./covered-counties">Counties</a></li>
-    <li class="observablehq-link"><a href="./covered-tracts">Tracts</a></li>
-    <li class="observablehq-link observablehq-link-active"><a href="./digital-equity">Digital Equity</a></li>
-    <li class="observablehq-link"><a href="./maplibre">MapLibre</a></li>
+    <li class="observablehq-link"><a href="./covered-counties">Covered Counties</a></li>
+    <li class="observablehq-link"><a href="./covered-tracts">Covered Tracts</a></li>
+    <li class="observablehq-link observablehq-link-active"><a href="./digital-equity">Digital-Equity Map</a></li>
   </ol>
 </nav>
 <script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),t=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?t.checked=r==="true":t.indeterminate=!0;for(const o of document.querySelectorAll("#observablehq-sidebar summary")){const s=o.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${o.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
@@ -364,19 +359,19 @@ if (map.loaded()) {
 </aside>
 <div id="observablehq-center">
 <main id="observablehq-main" class="observablehq">
-<h1 id="digital-equity" tabindex="-1"><a class="observablehq-header-anchor" href="#digital-equity">Digital Equity</a></h1>
+<h1 id="digital-equity-map" tabindex="-1"><a class="observablehq-header-anchor" href="#digital-equity-map">Digital-Equity Map</a></h1>
 <div id="cell-0b9fcb3e" class="observablehq observablehq--block"></div>
 <div id="cell-8de0a697" class="observablehq observablehq--block"></div>
 <div id="cell-90679218" class="observablehq observablehq--block"></div>
 <div id="cell-2d5e19c0" class="observablehq observablehq--block observablehq--loading"></div>
 <div id="cell-f2440dfe" class="observablehq observablehq--block"></div>
-<div id="cell-954437b9" class="observablehq observablehq--block"></div>
-<div id="cell-6d6ad5e4" class="observablehq observablehq--block"></div>
+<div id="cell-9b8150eb" class="observablehq observablehq--block"></div>
+<div id="cell-677d69aa" class="observablehq observablehq--block"></div>
 <div id="cell-a33a054f" class="observablehq observablehq--block"></div>
 <div id="cell-7fcd8c1f" class="observablehq observablehq--block"></div>
 </main>
 <footer id="observablehq-footer">
-<nav><a rel="prev" href="./covered-tracts"><span>Tracts</span></a><a rel="next" href="./maplibre"><span>MapLibre</span></a></nav>
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2024-04-22T11:40:51">Apr 22, 2024</a>.</div>
+<nav><a rel="prev" href="./covered-tracts"><span>Covered Tracts</span></a></nav>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2024-04-23T05:37:27">Apr 23, 2024</a>.</div>
 </footer>
 </div>

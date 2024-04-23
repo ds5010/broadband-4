@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>Tracts | broadband-4</title>
+<title>Covered Tracts | broadband-4</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
 <link rel="preload" as="style" href="./_observablehq/theme-air,near-midnight.css">
@@ -86,14 +86,14 @@ const toggle = Generators.input(toggleInput);
 return {layers,layerInput,layer,toggleInput,toggle};
 }});
 
-define({id: "c273ebac", inputs: ["toggle","tracts","display","html","layerInput","toggleInput","Plot","layers","layer"], body: (toggle,tracts,display,html,layerInput,toggleInput,Plot,layers,layer) => {
+define({id: "3aa11a68", inputs: ["toggle","tracts","display","html","layerInput","toggleInput","Plot","layers","layer"], body: (toggle,tracts,display,html,layerInput,toggleInput,Plot,layers,layer) => {
 // Page layout (reactive because of data-dependent legend-related info added to "layers")
 toggle
 tracts
 display(
    html`<div class="grid grid-cols-2 grid-auto-rows">
      <div class="card grid-colspan-1">
-       <h2>Covered population data layer</h2>
+       <h2>Data Layer</h2>
        ${layerInput}
        <h2 style="margin-top: 15px">Layer Visibility</h2>
        ${toggleInput}
@@ -115,69 +115,32 @@ display(
 )
 }});
 
-define({id: "cd4b01d7", inputs: ["d3"], outputs: ["f","fc","popup_tract_labels","popup_county_labels","popup_labels","popup_html"], body: (d3) => {
-// "popup_html" returns HTML for a popup as a text string
-const f = d3.format(".1f");
-const fc = d3.format(",d");
-const popup_tract_labels = {
-  tract_tot_pop: "<div>Tract population: ",
-  tot_cov_pop: "<div>Tract covered population: "
-};
-const popup_county_labels = {
-  county_tot_pop: "<div>County population: ",
-  tot_cov_pop: "<div>County covered population: "
-};
-// These are the 8 covered population fields
-const popup_labels = {
-  pct_rural_pop: "<div>Rural: ",
-  pct_ipr_pop: "<div>Below poverty threshold: ",
-  pct_aging_pop: "<div>Age 60 or over: ",
-  pct_vet_pop: "<div>Veterans: ",
-  pct_dis_pop: "<div>With a disability: ",
-  pct_lang_barrier_pop: "<div>With a language barrier: ",
-  pct_minority_pop: "<div>Racial or ethnic minority: ",
-  pct_incarc_pop: "<div>Incarcerated: "
-};
-
-function popup_html(header_labels, properties) {
-  let text = "";
-  Object.keys(header_labels).forEach(d => text += header_labels[d] + fc(properties[d]) + "</div>");
-  Object.keys(popup_labels).forEach(d => text += popup_labels[d] + f(properties[d]) + "%</div>")
-  return text;
-}
-return {f,fc,popup_tract_labels,popup_county_labels,popup_labels,popup_html};
-}});
-
-define({id: "36dbd665", inputs: ["layers","d3","popup_html","popup_tract_labels"], outputs: ["tract_layers","tracts","tracts_dictionary","counties"], body: async (layers,d3,popup_html,popup_tract_labels) => {
+define({id: "cd9db1cf", inputs: ["layers","d3"], outputs: ["tract_layers","tracts","tracts_dictionary","counties"], body: async (layers,d3) => {
 // Load data available at the tract level
 const tract_layers = Object.keys(layers)
-const tracts = await d3.json("https://pbogden.github.io/demo/tracts.json");
+const tracts = await d3.json("https://ds5010.github.io/broadband-4/tracts.json");
 const tracts_dictionary = await d3.json("https://ds5010.github.io/broadband-4/dictionary_tracts.json");
-const counties = await d3.json("https://pbogden.github.io/demo/counties.json");
+const counties = await d3.json("https://ds5010.github.io/broadband-4/counties.json");
 
 // Define the colors to be used on the map
 tract_layers.forEach(layer => {
   const field = layers[layer].field;
-  const extent = d3.extent(tracts.features.map(d => +d.properties[field]));
-  const domain = d3.scaleLinear().domain(extent).nice().ticks(5);
-  const range = d3.schemeRdYlBu[domain.length + 1].toReversed();
-  const scale = d3.scaleThreshold().domain(domain).range(range);
+  const domain = tracts_dictionary[field].domain;
+  const range = tracts_dictionary[field].range;
+  const scale = d3.scaleLinear().domain(domain).range(range);
 
-  // These are used to create the color legend
   layers[layer].domain = domain;
   layers[layer].range = range;
   layers[layer].description = tracts_dictionary[field].Description
   
-  // Set the colors and popups for each county
   tracts.features.forEach(d => {
     d.properties[field + "_color"] = scale(+d.properties[field]);
-    d.properties.popup = popup_html(popup_tract_labels, d.properties);
   });
 });
 return {tract_layers,tracts,tracts_dictionary,counties};
 }});
 
-define({id: "eefc1a9e", inputs: ["maplibregl","tracts","counties","layers","f"], outputs: ["popup_counties","popup_tracts","map","bounds"], body: (maplibregl,tracts,counties,layers,f) => {
+define({id: "0e04894d", inputs: ["maplibregl","tracts","counties"], outputs: ["popup_counties","popup_tracts","map","bounds"], body: (maplibregl,tracts,counties) => {
 // Popups
 const popup_counties = new maplibregl.Popup();
 const popup_tracts = new maplibregl.Popup();
@@ -265,53 +228,24 @@ map.on('load', () => {
   map.on('click', 'tracts-layer', (e) => {
     popup_tracts
           .setLngLat(e.lngLat)
-          .setHTML(popupHTML(e.features[0].properties))
+          .setHTML(e.features[0].properties.pct_tot_cov_pop_popup)
           .addTo(map);
   });
-
-  const popupHTML = function(d) {
-    const initial_layer = "Low Income/Poverty";
-    const field = layers[initial_layer].field; 
-    return "<div><b>" + initial_layer + ": " + f(d[field]) + "% </b></div>"
-          + "<div><b>" + d.NAMELSAD + "</b></div>"
-          + "<div><b>" + d.geography_name.split(",")[1] + "</b></div>"
-          + d.popup
-  }
 });
 return {popup_counties,popup_tracts,map,bounds};
 }});
 
-define({id: "f37048ac", inputs: ["layers","layer","f"], outputs: ["popupHTML"], body: (layers,layer,f) => {
-const popupHTML = function(d) {
-   const field = layers[layer].field; 
-   return "<div><b>" + layer + ": " + f(d[field]) + "% </b></div>"
-          + "<div><b>" + d.NAMELSAD + "</b></div>"
-          + "<div><b>" + d.geography_name.split(",")[1] + "</b></div>"
-          + d.popup
-}
-return {popupHTML};
-}});
-
-define({id: "31f36d4d", inputs: ["map","popup_tracts","popupHTML","layers","layer","toggle"], body: (map,popup_tracts,popupHTML,layers,layer,toggle) => {
+define({id: "370d8fb3", inputs: ["map","popup_tracts","layers","layer","display","toggle"], body: (map,popup_tracts,layers,layer,display,toggle) => {
 // Interacting with the map 
 if (map.loaded()) {
   // Close popups when changing layers
   popup_tracts.remove();
 
-  map.on('click', 'tracts-layer', (e) => {
-    popup_tracts
-          .setLngLat(e.lngLat)
-          .setHTML(popupHTML(e.features[0].properties))
-  });
-
   const field = layers[layer].field;
+  display(map)
   map.setPaintProperty("tracts-layer", "fill-color", ["get", field + "_color"])
   map.setLayoutProperty("tracts-layer", "visibility", toggle[0] == "visible" ? "visible" : "none");
 }
-}});
-
-define({id: "4bb3f7ee", inputs: ["display","tracts"], body: (display,tracts) => {
-display(tracts.features[0].properties)
 }});
 
 </script>
@@ -324,10 +258,9 @@ display(tracts.features[0].properties)
   </ol>
   <ol>
     <li class="observablehq-link"><a href="./about-us">About Us</a></li>
-    <li class="observablehq-link"><a href="./covered-counties">Counties</a></li>
-    <li class="observablehq-link observablehq-link-active"><a href="./covered-tracts">Tracts</a></li>
-    <li class="observablehq-link"><a href="./digital-equity">Digital Equity</a></li>
-    <li class="observablehq-link"><a href="./maplibre">MapLibre</a></li>
+    <li class="observablehq-link"><a href="./covered-counties">Covered Counties</a></li>
+    <li class="observablehq-link observablehq-link-active"><a href="./covered-tracts">Covered Tracts</a></li>
+    <li class="observablehq-link"><a href="./digital-equity">Digital-Equity Map</a></li>
   </ol>
 </nav>
 <script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),t=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?t.checked=r==="true":t.indeterminate=!0;for(const o of document.querySelectorAll("#observablehq-sidebar summary")){const s=o.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${o.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
@@ -337,21 +270,18 @@ display(tracts.features[0].properties)
 </aside>
 <div id="observablehq-center">
 <main id="observablehq-main" class="observablehq">
-<h1 id="tracts" tabindex="-1"><a class="observablehq-header-anchor" href="#tracts">Tracts</a></h1>
-<p>The map displays covered populations for Census tracts.</p>
+<h1 id="covered-tracts" tabindex="-1"><a class="observablehq-header-anchor" href="#covered-tracts">Covered Tracts</a></h1>
+<p>Covered populations for Census tracts</p>
 <div id="cell-0b9fcb3e" class="observablehq observablehq--block"></div>
 <div id="cell-dfd2da42" class="observablehq observablehq--block"></div>
-<div id="cell-c273ebac" class="observablehq observablehq--block"></div>
+<div id="cell-3aa11a68" class="observablehq observablehq--block"></div>
 <div id="cell-2d5e19c0" class="observablehq observablehq--block observablehq--loading"></div>
-<div id="cell-cd4b01d7" class="observablehq observablehq--block"></div>
-<div id="cell-36dbd665" class="observablehq observablehq--block"></div>
-<div id="cell-eefc1a9e" class="observablehq observablehq--block"></div>
-<div id="cell-f37048ac" class="observablehq observablehq--block"></div>
-<div id="cell-31f36d4d" class="observablehq observablehq--block"></div>
-<div id="cell-4bb3f7ee" class="observablehq observablehq--block observablehq--loading"></div>
+<div id="cell-cd9db1cf" class="observablehq observablehq--block"></div>
+<div id="cell-0e04894d" class="observablehq observablehq--block"></div>
+<div id="cell-370d8fb3" class="observablehq observablehq--block"></div>
 </main>
 <footer id="observablehq-footer">
-<nav><a rel="prev" href="./covered-counties"><span>Counties</span></a><a rel="next" href="./digital-equity"><span>Digital Equity</span></a></nav>
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2024-04-22T11:40:51">Apr 22, 2024</a>.</div>
+<nav><a rel="prev" href="./covered-counties"><span>Covered Counties</span></a><a rel="next" href="./digital-equity"><span>Digital-Equity Map</span></a></nav>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2024-04-23T05:37:27">Apr 23, 2024</a>.</div>
 </footer>
 </div>
