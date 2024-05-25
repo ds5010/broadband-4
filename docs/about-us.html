@@ -10,7 +10,7 @@
 <link rel="modulepreload" href="./_observablehq/client.js">
 <link rel="modulepreload" href="./_observablehq/runtime.js">
 <link rel="modulepreload" href="./_observablehq/stdlib.js">
-<link rel="modulepreload" href="./_npm/maplibre-gl@4.1.3/_esm.js">
+<link rel="modulepreload" href="./_npm/maplibre-gl@4.3.2/_esm.js">
 <link rel="modulepreload" href="./_npm/htl@0.3.1/_esm.js">
 <link rel="icon" href="./_file/observable.1af93621.png" type="image/png" sizes="32x32">
 <script type="module">
@@ -18,9 +18,9 @@
 import {define} from "./_observablehq/client.js";
 
 define({id: "d0f89c60", inputs: ["display","html"], outputs: ["maplibregl","container","map","popup"], body: async (display,html) => {
-const {default: maplibregl} = await import("./_npm/maplibre-gl@4.1.3/_esm.js");
+const {default: maplibregl} = await import("./_npm/maplibre-gl@4.3.2/_esm.js");
 display(html`
-<link rel="stylesheet" href="${new URL("./_npm/maplibre-gl@4.1.3/dist/maplibre-gl.css", location).href}">
+<link rel="stylesheet" href="${new URL("./_npm/maplibre-gl@4.3.2/dist/maplibre-gl.css", location).href}">
 <style>
 .maplibregl-popup-content {
   background-color: #f56991;
@@ -112,6 +112,6 @@ You might even decide that you want to join us, which would be cool.</p>
 </main>
 <footer id="observablehq-footer">
 <nav><a rel="prev" href="./"><span>broadband-4</span></a><a rel="next" href="./covered-counties"><span>Covered Counties</span></a></nav>
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2024-04-25T19:30:23">Apr 25, 2024</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2024-05-25T09:58:28">May 25, 2024</a>.</div>
 </footer>
 </div>

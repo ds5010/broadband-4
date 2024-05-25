@@ -12,7 +12,7 @@
 <link rel="modulepreload" href="./_observablehq/client.js">
 <link rel="modulepreload" href="./_observablehq/runtime.js">
 <link rel="modulepreload" href="./_observablehq/stdlib.js">
-<link rel="modulepreload" href="./_npm/maplibre-gl@4.1.3/_esm.js">
+<link rel="modulepreload" href="./_npm/maplibre-gl@4.3.2/_esm.js">
 <link rel="modulepreload" href="./_npm/d3@7.9.0/_esm.js">
 <link rel="modulepreload" href="./_npm/htl@0.3.1/_esm.js">
 <link rel="modulepreload" href="./_observablehq/stdlib/inputs.js">
@@ -59,8 +59,8 @@
 import {define} from "./_observablehq/client.js";
 
 define({id: "0b9fcb3e", inputs: ["display","html"], outputs: ["maplibregl"], body: async (display,html) => {
-const {default: maplibregl} = await import("./_npm/maplibre-gl@4.1.3/_esm.js");
-display(html`<link rel="stylesheet" href="${new URL("./_npm/maplibre-gl@4.1.3/dist/maplibre-gl.css", location).href}">`);
+const {default: maplibregl} = await import("./_npm/maplibre-gl@4.3.2/_esm.js");
+display(html`<link rel="stylesheet" href="${new URL("./_npm/maplibre-gl@4.3.2/dist/maplibre-gl.css", location).href}">`);
 
 return {maplibregl};
 }});
@@ -86,14 +86,14 @@ const toggle = Generators.input(toggleInput);
 return {layers,layerInput,layer,toggleInput,toggle};
 }});
 
-define({id: "9d4a7800", inputs: ["toggle","tracts","display","html","layerInput","toggleInput","Plot","layers","layer"], body: (toggle,tracts,display,html,layerInput,toggleInput,Plot,layers,layer) => {
+define({id: "c273ebac", inputs: ["toggle","tracts","display","html","layerInput","toggleInput","Plot","layers","layer"], body: (toggle,tracts,display,html,layerInput,toggleInput,Plot,layers,layer) => {
 // Page layout (reactive because of data-dependent legend-related info added to "layers")
 toggle
 tracts
 display(
    html`<div class="grid grid-cols-2 grid-auto-rows">
      <div class="card grid-colspan-1">
-       <h2>Covered population data Layer</h2>
+       <h2>Covered population data layer</h2>
        ${layerInput}
        <h2 style="margin-top: 15px">Layer Visibility</h2>
        ${toggleInput}
@@ -149,11 +149,11 @@ function popup_html(header_labels, properties) {
 return {f,fc,popup_tract_labels,popup_county_labels,popup_labels,popup_html};
 }});
 
-define({id: "3a3363ca", inputs: ["layers","d3"], outputs: ["county_layers","tracts","counties_dictionary","counties"], body: async (layers,d3) => {
+define({id: "93c08b80", inputs: ["layers","d3","popup_html","popup_county_labels"], outputs: ["county_layers","tracts","counties_dictionary","counties"], body: async (layers,d3,popup_html,popup_county_labels) => {
 // Load county-level data and add colors and popup strings
 const county_layers = Object.keys(layers)
 const tracts = await d3.json("https://ds5010.github.io/broadband-4/tracts.json");
-const counties_dictionary = await d3.json("https://ds5010.github.io/broadband-4/dictionary_tracts.json");
+const counties_dictionary = await d3.json("https://ds5010.github.io/broadband-4/dictionary_counties.json");
 const counties = await d3.json("https://ds5010.github.io/broadband-4/counties.json");
 
 // Define the colors to be used on the map
@@ -170,14 +170,15 @@ county_layers.forEach(layer => {
   
   counties.features.forEach(d => {
     d.properties[field + "_color"] = scale(+d.properties[field]);
+    d.properties.popup = popup_html(popup_county_labels, d.properties);
   });
 });
 return {county_layers,tracts,counties_dictionary,counties};
 }});
 
-define({id: "03b92364", inputs: ["maplibregl","tracts","counties"], outputs: ["popup_counties","map","bounds"], body: (maplibregl,tracts,counties) => {
+define({id: "e61c2db4", inputs: ["maplibregl","tracts","counties","layers","f"], outputs: ["popup","map","bounds"], body: (maplibregl,tracts,counties,layers,f) => {
 // Popups
-const popup_counties = new maplibregl.Popup();
+const popup = new maplibregl.Popup();
 
 // Map
 const map = new maplibregl.Map({
@@ -248,27 +249,60 @@ map.on('load', () => {
       },
   });
 
+  // Change the cursor to a pointer when the mouse is over the states layer.
+  map.on('mouseenter', 'counties-layer', () => {
+    map.getCanvas().style.cursor = 'pointer';
+  });
 
-  // Add popup listeners -- one popup for each layer
-  map.on('click', 'counties', (e) => {
-    popup_counties
+  // Change it back to a pointer when it leaves.
+  map.on('mouseleave', 'counties-layer', () => {
+    map.getCanvas().style.cursor = '';
+  });
+
+  map.on('click', 'counties-layer', (e) => {
+    popup
           .setLngLat(e.lngLat)
-          .setHTML(e.features[0].properties.pct_tot_cov_pop_popup)
+          .setHTML(popupHTML(e.features[0].properties))
           .addTo(map);
   });
+
+  const popupHTML = function(d) {
+   const initial_layer = "Low Income/Poverty";
+   const field = layers[initial_layer].field; 
+   return "<div><b>" + initial_layer + ": " + f(d[field]) + "% </b></div>"
+          + "<div><b>" + d.NAMELSAD + "</b></div>"
+          + d.popup
+  }
 });
-return {popup_counties,map,bounds};
+return {popup,map,bounds};
 }});
 
-define({id: "dcda0353", inputs: ["map","popup_counties","layers","layer","display"], body: (map,popup_counties,layers,layer,display) => {
+define({id: "a62b8bfd", inputs: ["layers","layer","f"], outputs: ["popupHTML"], body: (layers,layer,f) => {
+const popupHTML = function(d) {
+   const field = layers[layer].field; 
+   return "<div><b>" + layer + ": " + f(d[field]) + "% </b></div>"
+          + "<div><b>" + d.NAMELSAD + "</b></div>"
+          + d.popup
+}
+return {popupHTML};
+}});
+
+define({id: "d5a1d68b", inputs: ["map","popup","popupHTML","layers","layer","toggle"], body: (map,popup,popupHTML,layers,layer,toggle) => {
 // Interacting with the map 
 if (map.loaded()) {
+
+  map.on('click', 'counties-layer', (e) => {
+    popup
+          .setLngLat(e.lngLat)
+          .setHTML(popupHTML(e.features[0].properties))
+  });
+
   // Close popups when changing layers
-  popup_counties.remove();
+  popup.remove();
 
   const field = layers[layer].field;
-  display(map)
   map.setPaintProperty("counties-layer", "fill-color", ["get", field + "_color"])
+  map.setLayoutProperty("counties-layer", "visibility", toggle[0] == "visible" ? "visible" : "none");
 }
 }});
 
@@ -298,15 +332,16 @@ if (map.loaded()) {
 <p>The map displays covered populations for counties.</p>
 <div id="cell-0b9fcb3e" class="observablehq observablehq--block"></div>
 <div id="cell-dfd2da42" class="observablehq observablehq--block"></div>
-<div id="cell-9d4a7800" class="observablehq observablehq--block"></div>
+<div id="cell-c273ebac" class="observablehq observablehq--block"></div>
 <div id="cell-2d5e19c0" class="observablehq observablehq--block observablehq--loading"></div>
 <div id="cell-f2440dfe" class="observablehq observablehq--block"></div>
-<div id="cell-3a3363ca" class="observablehq observablehq--block"></div>
-<div id="cell-03b92364" class="observablehq observablehq--block"></div>
-<div id="cell-dcda0353" class="observablehq observablehq--block"></div>
+<div id="cell-93c08b80" class="observablehq observablehq--block"></div>
+<div id="cell-e61c2db4" class="observablehq observablehq--block"></div>
+<div id="cell-a62b8bfd" class="observablehq observablehq--block"></div>
+<div id="cell-d5a1d68b" class="observablehq observablehq--block"></div>
 </main>
 <footer id="observablehq-footer">
 <nav><a rel="prev" href="./about-us"><span>About Us</span></a><a rel="next" href="./covered-tracts"><span>Covered Tracts</span></a></nav>
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2024-04-25T19:30:23">Apr 25, 2024</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2024-05-25T09:58:28">May 25, 2024</a>.</div>
 </footer>
 </div>
